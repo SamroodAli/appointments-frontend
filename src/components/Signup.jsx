@@ -1,27 +1,46 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 const Signup = () => {
-  const { username, setUsername } = useState('');
-  const { email, setEmail } = useState('');
-  const { password, setPassword } = useState('');
-  const { passwordConfirmation, setPasswordConfirmation } = useState('');
+  const [username, setUsername] = useState('Samrood');
+  const [email, setEmail] = useState('samrood@gmailexample22.com');
+  const [password, setPassword] = useState('password');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('password');
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const { data } = await axios.post('http://localhost:8000/auth/signup', {
+      username,
+      email,
+      password,
+      password_confirmation: passwordConfirmation,
+    }, {
+
+    });
+
+    console.log(data);
+  };
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <label htmlFor="username">
         Enter Username
-        <input value={username} onChange={setUsername} />
+        <input value={username} onChange={(e) => setUsername(e.target.value)} />
       </label>
       <label htmlFor="username">
         Enter email
-        <input value={email} onChange={setEmail} />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} />
       </label>
       <label htmlFor="username">
         Enter password
-        <input value={password} onChange={setPassword} />
+        <input value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
       <label htmlFor="username">
         Confirm password
-        <input value={passwordConfirmation} onChange={setPasswordConfirmation} />
+        <input
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+        />
       </label>
       <input type="submit" value="Submit" />
     </form>
