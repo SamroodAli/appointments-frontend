@@ -37,4 +37,17 @@ export const signout = (navigate) => async (dispatch) => {
   }
 };
 
-export default { signin, signout };
+export const getCurrentUser = (navigate) => async (dispatch) => {
+  try {
+    const { data } = await rails.delete('/auth/current_user');
+    dispatch(onCurrentUser(data.username));
+    navigate('/');
+    if (navigate) {
+      navigate('/');
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export default { signin, signout, getCurrentUser };
