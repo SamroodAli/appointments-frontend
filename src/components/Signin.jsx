@@ -7,7 +7,7 @@ const Signin = () => {
   const [email, setEmail] = useState('samrood@gmailexample22.com');
   const [password, setPassword] = useState('password');
   const { signin } = useActions();
-  const { currentUser } = useSelector();
+  const { currentUser } = useSelector((state) => state);
   const navigate = useNavigate();
 
   if (currentUser.username) {
