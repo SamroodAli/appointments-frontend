@@ -1,6 +1,7 @@
 import {
   SET_CURRENT_USER,
   SET_CURRENT_USER_ERROR,
+  SIGN_OUT,
 } from '../action-types';
 
 const initialState = {
@@ -15,6 +16,9 @@ const currentUser = (state = initialState, action) => {
     }
     case SET_CURRENT_USER_ERROR: {
       return { username: '', errorMessage: 'Invalid credentials' };
+    }
+    case SIGN_OUT: {
+      return { ...initialState };
     }
     default: {
       return state;
