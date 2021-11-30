@@ -34,4 +34,4 @@ export const signout = () => async (dispatch) => {
   }
 };
 
-export default { signin };
+export default { signin, signout };

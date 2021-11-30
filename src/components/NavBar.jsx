@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import useActions from '../hooks/useActions';
 
 const NavBar = () => {
   const { currentUser: { username } } = useSelector((state) => state);
+  const { signout } = useActions();
 
   return (
     <div>
       {
-        username && <Link to="/signout">Sign out</Link>
+        username && <button type="button" onClick={signout}>Sign out</button>
       }
       {
         !username && (
