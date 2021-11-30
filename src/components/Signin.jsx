@@ -1,21 +1,14 @@
 import { useState } from 'react';
-import rails from '../api/rails';
+import useActions from '../hooks/useActions';
 
 const Signin = () => {
   const [email, setEmail] = useState('samrood@gmailexample22.com');
   const [password, setPassword] = useState('password');
+  const { signin } = useActions();
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await rails.post('/auth/signin', {
-      auth: {
-        email,
-        password,
-      },
-    }, {
-    });
-
-    console.log(data);
+    signin(email, password);
   };
 
   return (
