@@ -1,3 +1,5 @@
-const actionCreators = {};
+import signin from './signin';
 
-export default actionCreators;
+export default {
+  signin,
+};

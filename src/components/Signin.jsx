@@ -10,13 +10,9 @@ const Signin = () => {
   const { currentUser } = useSelector((state) => state);
   const navigate = useNavigate();
 
-  if (currentUser.username) {
-    navigate('/');
-  }
-
   const onSubmit = async (e) => {
     e.preventDefault();
-    signin(email, password);
+    signin(email, password, navigate);
   };
 
   return (
