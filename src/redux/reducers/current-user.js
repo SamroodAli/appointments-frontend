@@ -1,12 +1,24 @@
-import { SET_CURRENT_USER } from '../action-types';
+import {
+  SET_CURRENT_USER,
+  SET_CURRENT_USER_ERROR,
+} from '../action-types';
 
-const currentUser = (state = null, action) => {
+const initialState = {
+  username: '',
+  errorMessage: '',
+};
+
+const currentUser = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER: {
-      return action.payload;
+      return { username: action.payload.username, errorMessage: '' };
     }
-    default:
+    case SET_CURRENT_USER_ERROR: {
+      return { username: '', errorMessage: 'Invalid credentials' };
+    }
+    default: {
       return state;
+    }
   }
 };
 
