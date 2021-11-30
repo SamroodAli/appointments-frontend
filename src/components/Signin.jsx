@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import rails from '../api/rails';
 
-const Signup = () => {
+const Signin = () => {
   const [email, setEmail] = useState('samrood@gmailexample22.com');
   const [password, setPassword] = useState('password');
 
@@ -33,4 +33,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signin;

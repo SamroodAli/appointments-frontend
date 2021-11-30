@@ -1,3 +1,2 @@
-const actionTypes = {};
-
-export default actionTypes;
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const SET_CURRENT_USER1 = 'SET_CURRENT_USER1';
