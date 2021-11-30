@@ -2,19 +2,15 @@ import { useState } from 'react';
 import rails from '../api/rails';
 
 const Signup = () => {
-  const [username, setUsername] = useState('Samrood');
   const [email, setEmail] = useState('samrood@gmailexample22.com');
   const [password, setPassword] = useState('password');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('password');
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await rails.post('/auth/signup', {
-      user: {
-        username,
+    const { data } = await rails.post('/auth/signin', {
+      auth: {
         email,
         password,
-        password_confirmation: passwordConfirmation,
       },
     }, {
     });
@@ -25,23 +21,12 @@ const Signup = () => {
   return (
     <form onSubmit={onSubmit}>
       <label htmlFor="username">
-        Enter Username
-        <input value={username} onChange={(e) => setUsername(e.target.value)} />
-      </label>
-      <label htmlFor="username">
         Enter email
         <input value={email} onChange={(e) => setEmail(e.target.value)} />
       </label>
       <label htmlFor="username">
         Enter password
         <input value={password} onChange={(e) => setPassword(e.target.value)} />
-      </label>
-      <label htmlFor="username">
-        Confirm password
-        <input
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
       </label>
       <input type="submit" value="Submit" />
     </form>
