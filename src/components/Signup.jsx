@@ -26,13 +26,13 @@ const Signup = () => {
     <form onSubmit={onSubmit}>
       <label htmlFor="username">
         Enter Username
-        <input value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
       </label>
-      <label htmlFor="username">
+      <label htmlFor="email">
         Enter email
         <input value={email} onChange={(e) => setEmail(e.target.value)} />
       </label>
-      <label htmlFor="username">
+      <label htmlFor="password">
         Enter password
         <input value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
