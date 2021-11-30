@@ -1,5 +1,5 @@
 import rails from '../../api/rails';
-import { setCurrentUser } from '../actions';
+import { onCurrentUser, onCurrentUserError } from '../actions';
 
 const signin = (email, password) => async (dispatch, getState) => {
   const { currentUser } = getState();
@@ -16,8 +16,9 @@ const signin = (email, password) => async (dispatch, getState) => {
       },
     });
 
-    dispatch(setCurrentUser(data.username));
+    dispatch(onCurrentUser(data.username));
   } catch (err) {
+    dispatch(onCurrentUserError());
   }
 };
 
