@@ -25,10 +25,13 @@ const signin = (email, password, navigate) => async (dispatch, getState) => {
   }
 };
 
-export const signout = () => async (dispatch) => {
+export const signout = (navigate) => async (dispatch) => {
   try {
     await rails.delete('/auth/signout');
     dispatch(onSignout());
+    if (navigate) {
+      navigate('/');
+    }
   } catch (err) {
     console.error(err);
   }
