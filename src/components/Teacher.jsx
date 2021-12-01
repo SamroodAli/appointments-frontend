@@ -1,29 +1,16 @@
-import {
-  useQuery,
-} from 'react-query';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import getTeacher from '../api/getTeacher';
 import NewAppointmentForm from './NewAppointmentForm';
-import useActions from '../hooks/useActions';
+import useLockedRoute from '../hooks/useLockedRoute';
 
 const Teacher = () => {
   const { id } = useParams();
 
-  const navigate = useNavigate();
-  const { signinError } = useActions();
+  const fetchTeacher = () => getTeacher(id);
 
   const {
     isLoading, isError, data, error,
-  } = useQuery(`teacher-${id}`, () => getTeacher(id), {
-    retry: (failureCount, error) => {
-      if (error.response.status === 401) {
-        signinError('You must be logged in to view this page');
-        navigate('/signin');
-        return false;
-      }
-      return true;
-    },
-  });
+  } = useLockedRoute(`/teachers/${id}`, fetchTeacher);
 
   if (isLoading) {
     return <span>Loading...</span>;

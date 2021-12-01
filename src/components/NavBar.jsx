@@ -20,6 +20,8 @@ const NavBar = () => {
           </>
         )
       }
+      <Link to="/teachers">Teachers</Link>
+      <Link to="/appointments">My Appointments</Link>
     </div>
   );
 };
