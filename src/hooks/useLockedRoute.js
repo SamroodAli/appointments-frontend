@@ -8,10 +8,6 @@ const useLockedRoute = (cacheKey, fetcher) => {
   const { signinError } = useActions();
   const { username } = useSelector((state) => state.currentUser);
 
-  if (!username) {
-    navigate('/signin');
-  }
-
   const {
     isLoading, isError, data: { data }, error,
   } = useQuery(cacheKey, fetcher, {
