@@ -21,7 +21,7 @@ const signin = (email, password, navigate) => async (dispatch, getState) => {
       navigate('/');
     }
   } catch (err) {
-    dispatch(onCurrentUserError());
+    dispatch(onCurrentUserError('Invalid credentials'));
   }
 };
 
@@ -50,4 +50,8 @@ export const getCurrentUser = (navigate) => async (dispatch) => {
   }
 };
 
-export default { signin, signout, getCurrentUser };
+const signinError = (message) => onCurrentUserError(message);
+
+export default {
+  signin, signout, getCurrentUser, signinError,
+};
