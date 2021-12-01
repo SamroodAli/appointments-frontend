@@ -1,25 +1,22 @@
-import { useState } from 'react';
-import rails from '../api/rails';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useActions from '../hooks/useActions';
 
 const Signup = () => {
   const [username, setUsername] = useState('Samrood');
   const [email, setEmail] = useState('samrood@gmailexample22.com');
   const [password, setPassword] = useState('password');
   const [passwordConfirmation, setPasswordConfirmation] = useState('password');
+  const { signup, getCurrentUser } = useActions();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getCurrentUser(navigate);
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await rails.post('/auth/signup', {
-      user: {
-        username,
-        email,
-        password,
-        password_confirmation: passwordConfirmation,
-      },
-    }, {
-    });
-
-    console.log(data);
+    signup(email, password, navigate);
   };
 
   return (

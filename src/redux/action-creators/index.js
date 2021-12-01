@@ -1,6 +1,37 @@
 import rails from '../../api/rails';
 import { onCurrentUser, onCurrentUserError, onSignout } from '../actions';
 
+const signup = (
+  username,
+  email,
+  password,
+  passwordConfirmation, navigate,
+) => async (dispatch, getState) => {
+  const { currentUser } = getState();
+
+  if (currentUser.username) {
+    return;
+  }
+
+  try {
+    const { data } = await rails.post('/auth/signup', {
+      user: {
+        username,
+        email,
+        password,
+        password_confirmation: passwordConfirmation,
+      },
+    });
+
+    dispatch(onCurrentUser(data.username));
+    if (navigate) {
+      navigate('/');
+    }
+  } catch (err) {
+    dispatch(onCurrentUserError('Invalid credentials'));
+  }
+};
+
 const signin = (email, password, navigate) => async (dispatch, getState) => {
   const { currentUser } = getState();
 
@@ -53,5 +84,5 @@ export const getCurrentUser = (navigate) => async (dispatch) => {
 const signinError = (message) => onCurrentUserError(message);
 
 export default {
-  signin, signout, getCurrentUser, signinError,
+  signin, signout, getCurrentUser, signinError, signup,
 };
