@@ -3,7 +3,7 @@ import {
   useQueryClient,
 } from 'react-query';
 import PropTypes from 'prop-types';
-import { postAppointments } from '../api';
+import postAppointments from '../api/postAppointments';
 
 const Form = ({ id, name }) => {
   const queryClient = useQueryClient();
@@ -16,7 +16,7 @@ const Form = ({ id, name }) => {
   });
 
   const onSubmit = () => {
-    mutation.mutate({ teacher_id: id });
+    mutation.mutate(id);
   };
 
   return (
@@ -29,7 +29,7 @@ const Form = ({ id, name }) => {
   );
 };
 
-Form.prototype = {
+Form.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
 };
