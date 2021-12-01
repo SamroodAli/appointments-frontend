@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import redux from '../redux';
 import Routes from './Routes';
-import './style.css';
 
 const App = () => {
   const queryClient = new QueryClient();

@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import Signup from './Signup';
 import Signin from './Signin';
 
-const Routes = () => (
+const AppRoutes = () => (
   <BrowserRouter>
     <NavBar />
     <Routes>
@@ -15,4 +15,4 @@ const Routes = () => (
   </BrowserRouter>
 );
 
-export default Routes;
+export default AppRoutes;
