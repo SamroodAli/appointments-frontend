@@ -3,6 +3,7 @@ import {
 } from 'react-query';
 import { useParams } from 'react-router-dom';
 import getTeacher from '../api/getTeacher';
+import NewAppointmentForm from './NewAppointmentForm';
 
 const Teacher = () => {
   const { id } = useParams();
@@ -24,8 +25,14 @@ const Teacher = () => {
     );
   }
 
+  const { name } = data.data;
+
   return (
-    <div>{data.data.name}</div>
+    <div>
+      <div>{name}</div>
+      <NewAppointmentForm id={id} name={name} />
+    </div>
+
   );
 };
 export default Teacher;
