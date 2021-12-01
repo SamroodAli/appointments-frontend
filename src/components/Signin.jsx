@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import useActions from '../hooks/useActions';
@@ -10,9 +10,12 @@ const Signin = () => {
   const { currentUser } = useSelector((state) => state);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    signout();
+  }, []);
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    signout();
     signin(email, password, navigate);
   };
 

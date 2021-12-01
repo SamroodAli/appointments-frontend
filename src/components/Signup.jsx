@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useActions from '../hooks/useActions';
 
@@ -10,9 +10,12 @@ const Signup = () => {
   const { signup, signout } = useActions();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    signout();
+  }, []);
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    signout();
     signup(username, email, password, passwordConfirmation, navigate);
   };
 
