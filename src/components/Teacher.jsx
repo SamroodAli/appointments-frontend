@@ -1,30 +1,29 @@
-import { useEffect } from 'react';
 import {
   useQuery,
 } from 'react-query';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import getTeacher from '../api/getTeacher';
 import NewAppointmentForm from './NewAppointmentForm';
+import useActions from '../hooks/useActions';
 
 const Teacher = () => {
   const { id } = useParams();
-  const { username } = useSelector((state) => state.currentUser);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!username) {
-      navigate('/signin');
-    }
-  }, []);
+  const navigate = useNavigate();
+  const { signinError } = useActions();
 
   const {
     isLoading, isError, data, error,
-  } = useQuery(`teacher-${id}`, () => getTeacher(id));
-
-  if (!username) {
-    return <div>Please sign in to access this page</div>;
-  }
+  } = useQuery(`teacher-${id}`, () => getTeacher(id), {
+    retry: (failureCount, error) => {
+      if (error.response.status === 401) {
+        signinError('You must be logged in to view this page');
+        navigate('/signin');
+        return false;
+      }
+      return true;
+    },
+  });
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -33,7 +32,7 @@ const Teacher = () => {
   if (isError) {
     return (
       <span>
-        Error:
+        Error:asda
         {error.message}
       </span>
     );

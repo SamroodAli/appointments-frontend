@@ -16,13 +16,13 @@ const Form = ({ id, name }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutation.mutate(id);
+    mutation.mutate(Number(id));
   };
 
   return (
     <form onSubmit={onSubmit}>
       <label htmlFor="name">
-        <input value={name} />
+        <input value={name} readOnly />
       </label>
       <input type="submit" value="Submit" />
     </form>
@@ -30,7 +30,7 @@ const Form = ({ id, name }) => {
 };
 
 Form.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
 
