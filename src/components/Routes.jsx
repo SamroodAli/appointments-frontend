@@ -5,6 +5,7 @@ import Signup from './Signup';
 import Signin from './Signin';
 import Teachers from './Teachers';
 import Teacher from './Teacher';
+import Appointments from './Appointments';
 
 const AppRoutes = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const AppRoutes = () => (
       <Route path="/signin" element={<Signin />} />
       <Route path="/teachers/:id" element={<Teacher />} />
       <Route path="/teachers" element={<Teachers />} />
+      <Route path="/appointments" element={<Appointments />} />
     </Routes>
   </BrowserRouter>
 );
