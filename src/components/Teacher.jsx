@@ -1,12 +1,15 @@
 import {
   useQuery,
 } from 'react-query';
+import { useParams } from 'react-router-dom';
 import getTeacher from '../api/getTeachers';
 
 const Teacher = () => {
+  const { id } = useParams();
+
   const {
     isLoading, isError, data, error,
-  } = useQuery('todos', getTeacher);
+  } = useQuery('todos', () => getTeacher(id));
 
   if (isLoading) {
     return <span>Loading...</span>;
