@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import Signup from './Signup';
 import Signin from './Signin';
 import Teachers from './Teachers';
+import Teacher from './Teacher';
 
 const AppRoutes = () => (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const AppRoutes = () => (
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/teachers" element={<Teachers />} />
+      <Route path="/teachers/:id" element={<Teacher />} />
     </Routes>
   </BrowserRouter>
 );
