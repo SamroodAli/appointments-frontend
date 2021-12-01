@@ -64,12 +64,11 @@ export const signout = () => async (dispatch) => {
   }
 };
 
-export const getCurrentUser = (navigate) => async (dispatch) => {
+export const getCurrentUser = () => async (dispatch) => {
   try {
     const { data } = await rails.get('/auth/current_user');
     if (data) {
       dispatch(onCurrentUser(data.username));
-      navigate('/');
     }
   } catch (err) {
     console.error(err);
