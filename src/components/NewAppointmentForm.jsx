@@ -15,7 +15,8 @@ const Form = ({ id, name }) => {
     },
   });
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     mutation.mutate(id);
   };
 
