@@ -1,18 +1,20 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import NavBar from './NavBar';
-import Signup from './Signup';
-import Signin from './Signin';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import redux from '../redux';
+import Routes from './Routes';
+import './style.css';
 
-const App = () => (
-  <BrowserRouter>
-    <NavBar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/signin" element={<Signin />} />
-    </Routes>
-  </BrowserRouter>
-);
+const App = () => {
+  const queryClient = new QueryClient();
+
+  return (
+    <Provider store={redux.store}>
+      <QueryClientProvider client={queryClient}>
+        <Routes />
+      </QueryClientProvider>
+    </Provider>
+  );
+};
 
 export default App;
