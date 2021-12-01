@@ -7,7 +7,7 @@ import getTeachers from '../api/getTeachers';
 const Teachers = () => {
   const {
     isLoading, isError, data, error,
-  } = useQuery('todos', getTeachers);
+  } = useQuery('teachers', getTeachers);
 
   if (isLoading) {
     return <span>Loading...</span>;

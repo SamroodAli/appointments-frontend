@@ -39,7 +39,7 @@ export const signout = (navigate) => async (dispatch) => {
 
 export const getCurrentUser = (navigate) => async (dispatch) => {
   try {
-    const { data } = await rails.delete('/auth/current_user');
+    const { data } = await rails.get('/auth/current_user');
     dispatch(onCurrentUser(data.username));
     navigate('/');
     if (navigate) {
