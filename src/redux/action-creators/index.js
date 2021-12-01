@@ -24,9 +24,7 @@ const signup = (
     });
 
     dispatch(onCurrentUser(data.username));
-    if (navigate) {
-      navigate('/');
-    }
+    navigate('/');
   } catch (err) {
     dispatch(onCurrentUserError('Invalid credentials'));
   }
@@ -46,8 +44,9 @@ const signin = (email, password, navigate) => async (dispatch, getState) => {
         password,
       },
     });
-
-    dispatch(onCurrentUser(data.username));
+    if (data) {
+      dispatch(onCurrentUser(data.username));
+    }
     if (navigate) {
       navigate('/');
     }
@@ -56,13 +55,10 @@ const signin = (email, password, navigate) => async (dispatch, getState) => {
   }
 };
 
-export const signout = (navigate) => async (dispatch) => {
+export const signout = () => async (dispatch) => {
   try {
     await rails.delete('/auth/signout');
     dispatch(onSignout());
-    if (navigate) {
-      navigate('/');
-    }
   } catch (err) {
     console.error(err);
   }
@@ -71,9 +67,8 @@ export const signout = (navigate) => async (dispatch) => {
 export const getCurrentUser = (navigate) => async (dispatch) => {
   try {
     const { data } = await rails.get('/auth/current_user');
-    dispatch(onCurrentUser(data.username));
-    navigate('/');
-    if (navigate) {
+    if (data) {
+      dispatch(onCurrentUser(data.username));
       navigate('/');
     }
   } catch (err) {

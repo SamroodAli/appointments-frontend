@@ -3,25 +3,16 @@ import useLockedRoute from '../hooks/useLockedRoute';
 
 const Appointments = () => {
   const {
-    isLoading, isError, data, error,
+    notReady, notReadyContent, data,
   } = useLockedRoute('appointments', getAppointments);
 
-  if (isLoading) {
-    return <span>Loading...</span>;
-  }
-
-  if (isError) {
-    return (
-      <span>
-        Error:
-        {error.message}
-      </span>
-    );
+  if (notReady) {
+    return notReadyContent;
   }
 
   return (
     <ul>
-      {data.data.map((appointment) => (
+      {data.map((appointment) => (
         <li key={appointment.id}>
           {appointment.teacher_id}
         </li>

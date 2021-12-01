@@ -9,23 +9,14 @@ const Teacher = () => {
   const fetchTeacher = () => getTeacher(id);
 
   const {
-    isLoading, isError, data, error,
+    notReady, notReadyContent, data,
   } = useLockedRoute(`/teachers/${id}`, fetchTeacher);
 
-  if (isLoading) {
-    return <span>Loading...</span>;
+  if (notReady) {
+    return notReadyContent;
   }
 
-  if (isError) {
-    return (
-      <span>
-        Error:asda
-        {error.message}
-      </span>
-    );
-  }
-
-  const { name } = data.data;
+  const { name } = data;
 
   return (
     <div>

@@ -13,7 +13,7 @@ const useLockedRoute = (cacheKey, fetcher) => {
   }
 
   const {
-    isLoading, isError, data, error,
+    isLoading, isError, data: { data }, error,
   } = useQuery(cacheKey, fetcher, {
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
@@ -25,8 +25,24 @@ const useLockedRoute = (cacheKey, fetcher) => {
     },
   });
 
+  let notReadyContent;
+  const notReady = !username || isLoading || isError;
+
+  if (!username) {
+    notReadyContent = <div>Trying to sign you in</div>;
+  } else if (isLoading) {
+    notReadyContent = <span>Loading...</span>;
+  } else if (isError) {
+    notReadyContent = (
+      <span>
+        Error:asda
+        {error.message}
+      </span>
+    );
+  }
+
   return {
-    isLoading, isError, data, error,
+    notReady, notReadyContent, data,
   };
 };
 
