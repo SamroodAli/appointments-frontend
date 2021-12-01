@@ -23,8 +23,8 @@ const Teachers = () => {
 
   return (
     <ul>
-      {data.map((teacher) => (
-        <li key={teacher.name}>{teacher.name}</li>
+      {data.data.map((teacher) => (
+        <li key={teacher.id}>{teacher.name}</li>
       ))}
     </ul>
   );
