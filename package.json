@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "BUILD_PATH='../appointments-backend/public' react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch": "nodemon --watch ./src build.js "
   },
   "eslintConfig": {
     "extends": [

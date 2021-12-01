@@ -16,7 +16,7 @@ const Signup = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    signup(email, password, navigate);
+    signup(username, email, password, passwordConfirmation, navigate);
   };
 
   return (
