@@ -5,7 +5,7 @@ import useActions from './useActions';
 
 const useLockedRoute = (cacheKey, fetcher) => {
   const navigate = useNavigate();
-  const { signinError } = useActions();
+  const { signinError, getCurrentUser } = useActions();
   const { username } = useSelector((state) => state.currentUser);
 
   const {
@@ -25,6 +25,7 @@ const useLockedRoute = (cacheKey, fetcher) => {
   const notReady = !username || isLoading || isError;
 
   if (!username) {
+    getCurrentUser(navigate);
     notReadyContent = <div>Trying to sign you in</div>;
   } else if (isLoading) {
     notReadyContent = <span>Loading...</span>;
