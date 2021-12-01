@@ -7,7 +7,6 @@ import postAppointments from '../api/postAppointments';
 
 const Form = ({ id, name }) => {
   const queryClient = useQueryClient();
-
   const mutation = useMutation(postAppointments, {
     onSuccess: () => {
       // Invalidate and refetch

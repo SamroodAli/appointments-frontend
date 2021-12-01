@@ -1,12 +1,12 @@
 import {
   useQuery,
 } from 'react-query';
-import getTeachers from '../api/getTeachers';
+import getAppointments from '../api/getAppointments';
 
 const Appointments = () => {
   const {
     isLoading, isError, data, error,
-  } = useQuery('appointments', getTeachers);
+  } = useQuery('appointments', getAppointments);
 
   if (isLoading) {
     return <span>Loading...</span>;
