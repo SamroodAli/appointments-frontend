@@ -1,6 +1,7 @@
 import {
   useQuery,
 } from 'react-query';
+import { Link } from 'react-router-dom';
 import getTeachers from '../api/getTeachers';
 
 const Teachers = () => {
@@ -24,7 +25,11 @@ const Teachers = () => {
   return (
     <ul>
       {data.data.map((teacher) => (
-        <li key={teacher.id}>{teacher.name}</li>
+        <li key={teacher.id}>
+          <Link to={`/teachers/${teacher.id}`}>
+            {teacher.name}
+          </Link>
+        </li>
       ))}
     </ul>
   );
