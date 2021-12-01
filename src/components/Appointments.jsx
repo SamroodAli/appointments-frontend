@@ -1,12 +1,10 @@
-import {
-  useQuery,
-} from 'react-query';
 import getAppointments from '../api/getAppointments';
+import useLockedRoute from '../hooks/useLockedRoute';
 
 const Appointments = () => {
   const {
     isLoading, isError, data, error,
-  } = useQuery('appointments', getAppointments);
+  } = useLockedRoute('appointments', getAppointments);
 
   if (isLoading) {
     return <span>Loading...</span>;
