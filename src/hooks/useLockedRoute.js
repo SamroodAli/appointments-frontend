@@ -9,7 +9,7 @@ const useLockedRoute = (cacheKey, fetcher) => {
   const { username } = useSelector((state) => state.currentUser);
 
   const {
-    isLoading, isError, data: { data }, error,
+    isLoading, isError, data, error,
   } = useQuery(cacheKey, fetcher, {
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
@@ -38,7 +38,8 @@ const useLockedRoute = (cacheKey, fetcher) => {
   }
 
   return {
-    notReady, notReadyContent, data,
+    // data.data because both react query and axios returns data in a property called data
+    notReady, notReadyContent, data: data ? data.data : null,
   };
 };
 
