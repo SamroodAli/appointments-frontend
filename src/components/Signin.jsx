@@ -7,7 +7,7 @@ const Signin = () => {
   const [email, setEmail] = useState('samrood@gmailexample22.com');
   const [password, setPassword] = useState('password');
   const { signin } = useActions();
-  const { currentUser } = useSelector((state) => state);
+  const { errorMessages } = useSelector((state) => state.currentUser);
   const navigate = useNavigate();
 
   const onSubmit = async (e) => {
@@ -17,7 +17,7 @@ const Signin = () => {
 
   return (
     <div>
-      {currentUser.errorMessage && <p>{currentUser.errorMessage}</p>}
+      {!!errorMessages.length && errorMessages.map((error) => <p key={error}>{error}</p>)}
       <form onSubmit={onSubmit}>
         <label htmlFor="username">
           Enter email

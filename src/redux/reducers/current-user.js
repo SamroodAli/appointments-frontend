@@ -6,16 +6,16 @@ import {
 
 const initialState = {
   username: '',
-  errorMessage: '',
+  errorMessages: [],
 };
 
 const currentUser = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER: {
-      return { username: action.payload, errorMessage: '' };
+      return { username: action.payload, errorMessages: [] };
     }
     case SET_CURRENT_USER_ERROR: {
-      return { username: '', errorMessage: action.payload };
+      return { username: '', errorMessages: action.payload };
     }
     case SIGN_OUT: {
       return { ...initialState };
