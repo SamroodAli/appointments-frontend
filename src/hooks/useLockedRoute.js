@@ -9,7 +9,20 @@ const useLockedRoute = (cacheKey, fetcher) => {
   const { username } = useSelector((state) => state.currentUser);
 
   const {
-    isLoading, isError, data, error,
+      data,
+  } = useQuery(cacheKey, fetcher, {
+    retry: (failureCount, error) => {
+      if (error.response.status === 401) {
+        signinError('You must be logged in to view this page');
+        navigate('/signin');
+        return false;
+      }
+      return true;
+    },
+  });
+
+  const {
+    isLoading, isError, data, error,isSuccess
   } = useQuery(cacheKey, fetcher, {
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
@@ -22,7 +35,7 @@ const useLockedRoute = (cacheKey, fetcher) => {
   });
 
   let notReadyContent;
-  const notReady = !username || isLoading || isError;
+  const notReady = !isSuccess
 
   if (!username) {
     getCurrentUser(navigate);

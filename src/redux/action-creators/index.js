@@ -1,7 +1,10 @@
 import rails from '../../api/rails';
 import { onCurrentUser, onCurrentUserError, onSignout } from '../actions';
 
-const signup = (
+export const autosignin = (username) => onCurrentUser(username);
+export const signinError = (message) => onCurrentUserError(message);
+
+export const signup = (
   username,
   email,
   password,
@@ -30,7 +33,7 @@ const signup = (
   }
 };
 
-const signin = (email, password, navigate) => async (dispatch, getState) => {
+export const signin = (email, password, navigate) => async (dispatch, getState) => {
   const { currentUser } = getState();
 
   if (currentUser.username) {
@@ -62,21 +65,4 @@ export const signout = () => async (dispatch) => {
   } catch (err) {
     console.error(err);
   }
-};
-
-export const getCurrentUser = () => async (dispatch) => {
-  try {
-    const { data } = await rails.get('/auth/current_user');
-    if (data) {
-      dispatch(onCurrentUser(data.username));
-    }
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-const signinError = (message) => onCurrentUserError(message);
-
-export default {
-  signin, signout, getCurrentUser, signinError, signup,
 };
