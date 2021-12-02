@@ -14,7 +14,7 @@ const useLockedData = (cacheKey, fetcher) => {
   useQuery(['currentUser', username], getCurrentUser, {
     enabled: !username,
     cacheTime: 0,
-    onSuccess: ({ data: username }) => {
+    onSuccess: ({ data: { username } }) => {
       signinauto(username);
     },
     retry: (failureCount, error) => {
