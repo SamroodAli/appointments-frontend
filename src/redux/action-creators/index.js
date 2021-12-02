@@ -26,11 +26,11 @@ export const signup = (
         password_confirmation: passwordConfirmation,
       },
     });
-    console.log(data);
     dispatch(onCurrentUser(data.username));
     navigate('/');
   } catch (err) {
-    dispatch(onCurrentUserError('Invalid credentials'));
+    console.dir(err.response);
+    dispatch(onCurrentUserError(err.response.data));
   }
 };
 
