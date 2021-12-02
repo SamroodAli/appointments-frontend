@@ -8,7 +8,7 @@ const Teacher = () => {
 
   const {
     notReady, notReadyContent, data,
-  } = useLockedData(['teachers', id], getTeacher);
+  } = useLockedData(['teachers', { id }], getTeacher);
 
   if (notReady) {
     return notReadyContent;
