@@ -6,11 +6,9 @@ import useLockedRoute from '../hooks/useLockedRoute';
 const Teacher = () => {
   const { id } = useParams();
 
-  const fetchTeacher = () => getTeacher(id);
-
   const {
     notReady, notReadyContent, data,
-  } = useLockedRoute(`/teachers/${id}`, fetchTeacher);
+  } = useLockedRoute(['teachers', id], getTeacher);
 
   if (notReady) {
     return notReadyContent;
