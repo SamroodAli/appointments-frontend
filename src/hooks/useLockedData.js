@@ -14,8 +14,8 @@ const useLockedData = (cacheKey, fetcher) => {
   useQuery(['currentUser', username], getCurrentUser, {
     enabled: !username,
     cacheTime: 0,
-    onSuccess: ({ data: { username } }) => {
-      autoSignin(username);
+    onSuccess: ({ data }) => {
+      autoSignin(data.current_user);
     },
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
@@ -30,7 +30,7 @@ const useLockedData = (cacheKey, fetcher) => {
   // fetch data if current user
   const {
     isLoading, isError, data, error, isSuccess,
-  } = useQuery(cacheKey, fetcher, {
+  } = useQuery(username + cacheKey, fetcher, {
     enabled: !!username,
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
