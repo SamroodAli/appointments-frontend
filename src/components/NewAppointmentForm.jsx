@@ -9,10 +9,18 @@ import DatePicker from 'react-datepicker';
 import postAppointments from '../api/postAppointments';
 import 'react-datepicker/dist/react-datepicker.css';
 
+const TIMES = [
+  'UTC +1 9:00',
+  'UTC +1 12:00',
+  'UTC +1 15:00',
+];
+
 const Form = ({ id, name }) => {
+  const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState(TIMES[0]);
+
   const { username } = useSelector((state) => state.currentUser);
   const queryClient = useQueryClient();
-  const [startDate, setStartDate] = useState(new Date());
   const mutation = useMutation(postAppointments, {
     onSuccess: () => {
       // Invalidate and refetch
@@ -22,7 +30,10 @@ const Form = ({ id, name }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutation.mutate(Number(id));
+    mutation.mutate({
+      id: Number(id),
+      date,
+    });
   };
 
   return (
@@ -38,9 +49,16 @@ const Form = ({ id, name }) => {
       <DatePicker
         id="date"
         minDate={new Date()}
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        selected={date}
+        onChange={setDate}
       />
+      <label htmlFor="time">
+        <select value={time} onChange={(e) => setTime(e.target.value)}>
+          {
+            TIMES.map((time) => <option key={time} value={time}>{time}</option>)
+          }
+        </select>
+      </label>
       <input type="submit" value="Submit" />
     </form>
   );

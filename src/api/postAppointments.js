@@ -1,8 +1,9 @@
 import rails from './rails';
 
-const postAppointments = async (teacherId) => rails.post('/appointments', {
+const postAppointments = async ({ id, date }) => rails.post('/appointments', {
   appointment: {
-    teacher_id: teacherId,
+    teacher_id: id,
+    date,
   },
 });
 
