@@ -33,6 +33,7 @@ const Form = ({ id, name }) => {
     mutation.mutate({
       id: Number(id),
       date,
+      time,
     });
   };
 
