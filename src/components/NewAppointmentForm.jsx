@@ -3,9 +3,11 @@ import {
   useQueryClient,
 } from 'react-query';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import postAppointments from '../api/postAppointments';
 
 const Form = ({ id, name }) => {
+  const { username } = useSelector((state) => state.currentUser);
   const queryClient = useQueryClient();
   const mutation = useMutation(postAppointments, {
     onSuccess: () => {
@@ -21,8 +23,13 @@ const Form = ({ id, name }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor="name">
-        <input value={name} readOnly />
+      <label htmlFor="teacher">
+        Teacher
+        <input id="teacher" value={name} readOnly />
+      </label>
+      <label htmlFor="username">
+        Username
+        <input id="username" value={username} readOnly />
       </label>
       <input type="submit" value="Submit" />
     </form>

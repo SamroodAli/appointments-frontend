@@ -29,8 +29,12 @@ const useLockedData = (cacheKey, fetcher) => {
 
   // fetch data if current user
   const {
-    isLoading, isError, data, error, isSuccess,
-  } = useQuery(username + cacheKey, fetcher, {
+    isLoading,
+    isError,
+    data,
+    error,
+    isSuccess,
+  } = useQuery([username, cacheKey], fetcher, {
     enabled: !!username,
     retry: (failureCount, error) => {
       if (error.response.status === 401) {

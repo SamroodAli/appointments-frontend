@@ -8,7 +8,8 @@ export const signup = (
   username,
   email,
   password,
-  passwordConfirmation, navigate,
+  passwordConfirmation,
+  navigate,
 ) => async (dispatch, getState) => {
   const { currentUser } = getState();
 
@@ -25,7 +26,7 @@ export const signup = (
         password_confirmation: passwordConfirmation,
       },
     });
-
+    console.log(data);
     dispatch(onCurrentUser(data.username));
     navigate('/');
   } catch (err) {

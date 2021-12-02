@@ -1,6 +1,6 @@
 const Home = () => (
   <h1>
-    Home page
+    Home changed page
   </h1>
 );
 
