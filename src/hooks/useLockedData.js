@@ -6,7 +6,7 @@ import getCurrentUser from '../api/getCurrentUser';
 
 const useLockedData = (cacheKey, fetcher) => {
   const navigate = useNavigate();
-  const { signinError, autosignin } = useActions();
+  const { signinError, autoSignin } = useActions();
   const { username } = useSelector((state) => state.currentUser);
 
   // try to sign in if no current user
@@ -15,7 +15,7 @@ const useLockedData = (cacheKey, fetcher) => {
     enabled: !username,
     cacheTime: 0,
     onSuccess: ({ data: { username } }) => {
-      autosignin(username);
+      autoSignin(username);
     },
     retry: (failureCount, error) => {
       if (error.response.status === 401) {

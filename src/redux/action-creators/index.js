@@ -1,7 +1,7 @@
 import rails from '../../api/rails';
 import { onCurrentUser, onCurrentUserError, onSignout } from '../actions';
 
-export const autosignin = (username) => onCurrentUser(username);
+export const autoSignin = (username) => onCurrentUser(username);
 export const signinError = (message) => onCurrentUserError(message);
 
 export const signup = (
