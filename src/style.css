@@ -14,7 +14,7 @@ body {
 }
 
 .wrapper .sidebar {
-  background: rgb(5, 68, 104);
+  background: #ffffff;
   position: fixed;
   top: 0;
   left: 0;
@@ -50,8 +50,7 @@ body {
 .wrapper .sidebar ul li a {
   display: block;
   padding: 13px 30px;
-  border-bottom: 1px solid #10558d;
-  color: rgb(241, 237, 237);
+  color: #7C7C7C;
   font-size: 16px;
   position: relative;
 }
@@ -64,18 +63,53 @@ body {
 
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active {
-  color: #0c7db1;
+  color: #fff;
 
-  background: white;
+  background: #97BF10;
   border-right: 2px solid rgb(5, 68, 104);
 }
 
 .wrapper .sidebar ul li a:hover .icon,
 .wrapper .sidebar ul li a.active .icon {
-  color: #0c7db1;
+  color: #97BF10;
 }
 
 .wrapper .sidebar ul li a:hover:before,
 .wrapper .sidebar ul li a.active:before {
   display: block;
+}
+
+.wrapper .section {
+  width: calc(100% - 225px);
+  margin-left: 225px;
+  transition: all 0.5s ease;
+}
+
+.wrapper .section .top_navbar {
+  background: #ffffff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.wrapper .section .top_navbar .hamburger a {
+  font-size: 28px;
+  color:#97BF10
+}
+
+.wrapper .section .container {
+  margin: 30px;
+  background: #fff;
+  padding: 50px;
+  line-height: 28px;
+}
+
+body.active .wrapper .sidebar {
+  left: -225px;
+}
+
+body.active .wrapper .section {
+  margin-left: 0;
+  width: 100%;
 }
