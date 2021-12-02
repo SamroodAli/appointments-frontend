@@ -18,7 +18,12 @@ const NavBar = () => {
   return (
     <div>
       {
-        username && <button type="button" onClick={onSignOut}>Sign out</button>
+        username && (
+          <>
+            <button type="button" onClick={onSignOut}>Sign out</button>
+            <Link to="/appointments">My Appointments</Link>
+          </>
+        )
       }
       {
         !username && (
@@ -29,7 +34,6 @@ const NavBar = () => {
         )
       }
       <Link to="/teachers">Teachers</Link>
-      <Link to="/appointments">My Appointments</Link>
     </div>
   );
 };
