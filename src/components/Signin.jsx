@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import useActions from '../hooks/useActions';
@@ -6,13 +6,9 @@ import useActions from '../hooks/useActions';
 const Signin = () => {
   const [email, setEmail] = useState('samrood@gmailexample22.com');
   const [password, setPassword] = useState('password');
-  const { signin, signout } = useActions();
+  const { signin } = useActions();
   const { currentUser } = useSelector((state) => state);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    signout();
-  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
