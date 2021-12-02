@@ -2,15 +2,19 @@ import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import useActions from './useActions';
+import getCurrentUser from '../api/getCurrentUser';
 
 const useLockedRoute = (cacheKey, fetcher) => {
   const navigate = useNavigate();
-  const { signinError, getCurrentUser } = useActions();
+  const { signinError, signinauto } = useActions();
   const { username } = useSelector((state) => state.currentUser);
 
-  const {
-      data,
-  } = useQuery(cacheKey, fetcher, {
+  // try to sign in if no current user
+  useQuery('currentUser', getCurrentUser, {
+    enabled: !username,
+    onSuccess: ({ data: username }) => {
+      signinauto(username);
+    },
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
         signinError('You must be logged in to view this page');
@@ -21,9 +25,11 @@ const useLockedRoute = (cacheKey, fetcher) => {
     },
   });
 
+  // fetch data if current user
   const {
-    isLoading, isError, data, error,isSuccess
+    isLoading, isError, data, error, isSuccess,
   } = useQuery(cacheKey, fetcher, {
+    enabled: username,
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
         signinError('You must be logged in to view this page');
@@ -35,10 +41,9 @@ const useLockedRoute = (cacheKey, fetcher) => {
   });
 
   let notReadyContent;
-  const notReady = !isSuccess
+  const notReady = !isSuccess;
 
   if (!username) {
-    getCurrentUser(navigate);
     notReadyContent = <div>Trying to sign you in</div>;
   } else if (isLoading) {
     notReadyContent = <span>Loading...</span>;
