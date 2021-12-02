@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom';
 import getTeacher from '../api/getTeacher';
 import NewAppointmentForm from './NewAppointmentForm';
-import useLockedRoute from '../hooks/useLockedRoute';
+import useLockedData from '../hooks/useLockedData';
 
 const Teacher = () => {
   const { id } = useParams();
 
   const {
     notReady, notReadyContent, data,
-  } = useLockedRoute(['teachers', id], getTeacher);
+  } = useLockedData(['teachers', id], getTeacher);
 
   if (notReady) {
     return notReadyContent;

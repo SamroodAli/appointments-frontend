@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import useActions from './useActions';
 import getCurrentUser from '../api/getCurrentUser';
 
-const useLockedRoute = (cacheKey, fetcher) => {
+const useLockedData = (cacheKey, fetcher) => {
   const navigate = useNavigate();
   const { signinError, signinauto } = useActions();
   const { username } = useSelector((state) => state.currentUser);
@@ -64,4 +64,4 @@ const useLockedRoute = (cacheKey, fetcher) => {
   };
 };
 
-export default useLockedRoute;
+export default useLockedData;

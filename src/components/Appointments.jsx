@@ -1,10 +1,10 @@
 import getAppointments from '../api/getAppointments';
-import useLockedRoute from '../hooks/useLockedRoute';
+import useLockedData from '../hooks/useLockedData';
 
 const Appointments = () => {
   const {
     notReady, notReadyContent, data,
-  } = useLockedRoute('appointments', getAppointments);
+  } = useLockedData('appointments', getAppointments);
 
   if (notReady) {
     return notReadyContent;
