@@ -31,7 +31,7 @@ const useLockedData = (cacheKey, fetcher) => {
   const {
     isLoading, isError, data, error, isSuccess,
   } = useQuery(cacheKey, fetcher, {
-    enabled: username,
+    enabled: !!username,
     retry: (failureCount, error) => {
       if (error.response.status === 401) {
         signinError('You must be logged in to view this page');
