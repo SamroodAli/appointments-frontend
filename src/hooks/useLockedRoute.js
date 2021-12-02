@@ -10,8 +10,10 @@ const useLockedRoute = (cacheKey, fetcher) => {
   const { username } = useSelector((state) => state.currentUser);
 
   // try to sign in if no current user
-  useQuery('currentUser', getCurrentUser, {
+  // cache time zero because we authenticate with jwt token and not from cache
+  useQuery(['currentUser', username], getCurrentUser, {
     enabled: !username,
+    cacheTime: 0,
     onSuccess: ({ data: username }) => {
       signinauto(username);
     },
