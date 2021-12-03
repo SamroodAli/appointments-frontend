@@ -23,20 +23,15 @@ const Teachers = () => {
     );
   }
 
-  return (
-    <ul>
-      {data.data.map((teacher) => (
-        <li key={teacher.id}>
-          <Link to={`/teachers/${teacher.id}`}>
-            {teacher.name}
-          </Link>
-        </li>
+  const items = data.data.map((teacher) => ({
+    id: teacher.id,
+    name: teacher.name,
+  }));
 
-      ))}
-      <li>
-        <HorizontalScroll list={data.data.map((teacher) => ({ name: teacher.name }))} />
-      </li>
-    </ul>
+  return (
+    <HorizontalScroll
+      items={items}
+    />
   );
 };
 export default Teachers;
