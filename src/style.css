@@ -62,7 +62,7 @@ body {
 .wrapper .sidebar ul li a:hover{
     background: #96bf104a;
     color:#7c7c7c
-},
+}
 
 .wrapper .sidebar ul li a:hover:before,
 .wrapper .sidebar ul li a.active:before {

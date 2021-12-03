@@ -3,6 +3,7 @@ import {
 } from 'react-query';
 import { Link } from 'react-router-dom';
 import getTeachers from '../api/getTeachers';
+import HorizontalScroll from './horizontal-scroll';
 
 const Teachers = () => {
   const {
@@ -30,7 +31,11 @@ const Teachers = () => {
             {teacher.name}
           </Link>
         </li>
+
       ))}
+      <li>
+        <HorizontalScroll list={data.data.map((teacher) => ({ name: teacher.name }))} />
+      </li>
     </ul>
   );
 };
