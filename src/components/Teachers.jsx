@@ -29,9 +29,12 @@ const Teachers = () => {
   }));
 
   return (
-    <HorizontalScroll
-      items={items}
-    />
+    <div className="teachers-page">
+      <h1 className="teachers-heading">Best in class Teachers</h1>
+      <HorizontalScroll
+        items={items}
+      />
+    </div>
   );
 };
 export default Teachers;
