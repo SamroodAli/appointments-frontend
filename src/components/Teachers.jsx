@@ -22,14 +22,15 @@ const Teachers = () => {
     );
   }
 
+  // id has to be String for horizontal-scroll to work
   const items = data.data.map((teacher) => ({
-    id: String(teacher.id),
+    id: teacher.id,
     name: teacher.name,
   }));
 
   return (
     <HorizontalScroll
-      itemsProps={items}
+      items={items}
     />
   );
 };
