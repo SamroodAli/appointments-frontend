@@ -2,6 +2,7 @@ import { createPortal } from 'react-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { QueryCache, MutationCache } from 'react-query';
+import { useEffect } from 'react';
 import useActions from '../hooks/useActions';
 
 const navBarContainer = document.getElementById('navLinks');
@@ -10,6 +11,13 @@ const NavBar = () => {
   const { currentUser: { username } } = useSelector((state) => state);
   const { signout } = useActions();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', () => {
+      document.querySelector('body').classList.toggle('active');
+    });
+  }, []);
 
   const onSignOut = () => {
     signout();
@@ -24,12 +32,12 @@ const NavBar = () => {
     { to: '/signin', text: 'Sign In', locked: !!username },
     { to: '/signup', text: 'Sign Up', locked: !!username },
     {
-      to: '/signout', text: 'Sign Out', locked: !username, onClick: onSignOut,
+      to: '#', text: 'Sign Out', locked: !username, onClick: onSignOut,
     },
 
   ].filter(({ locked }) => !locked).map((link) => (
     <li key={link.to}>
-      <Link to={link.to} className={window.location.pathname === link.to ? 'active' : ''}>{link.text}</Link>
+      <Link to={link.to} className={window.location.pathname === link.to ? 'active' : ''} onClick={link.onClick}>{link.text}</Link>
     </li>
   ));
 
