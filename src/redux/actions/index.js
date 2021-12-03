@@ -1,4 +1,6 @@
-import { SET_CURRENT_USER, SET_CURRENT_USER_ERROR, SIGN_OUT } from '../action-types';
+import {
+  SET_CURRENT_USER, SET_CURRENT_USER_ERROR, SIGN_OUT, SET_REDIRECT_ROUTE,
+} from '../action-types';
 
 export const onCurrentUser = (currentUser) => ({ type: SET_CURRENT_USER, payload: currentUser });
 export const onCurrentUserError = (message) => {
@@ -14,3 +16,5 @@ export const onCurrentUserError = (message) => {
   return ({ type: SET_CURRENT_USER_ERROR, payload });
 };
 export const onSignout = () => ({ type: SIGN_OUT });
+
+export const onRedirect = (route) => ({ type: SET_REDIRECT_ROUTE, payload: route });

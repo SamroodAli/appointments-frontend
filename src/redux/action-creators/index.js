@@ -1,5 +1,7 @@
 import rails from '../../api/rails';
-import { onCurrentUser, onCurrentUserError, onSignout } from '../actions';
+import {
+  onCurrentUser, onCurrentUserError, onRedirect, onSignout,
+} from '../actions';
 
 export const autoSignin = (username) => onCurrentUser(username);
 export const signinError = (message) => onCurrentUserError(message);
@@ -67,3 +69,5 @@ export const signout = () => async (dispatch) => {
     console.error(err);
   }
 };
+
+export const storeRedirect = (route) => onRedirect(route);
