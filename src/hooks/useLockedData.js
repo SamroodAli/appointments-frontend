@@ -6,8 +6,18 @@ import getCurrentUser from '../api/getCurrentUser';
 
 const useLockedData = (cacheKey, fetcher) => {
   const navigate = useNavigate();
-  const { signinError, autoSignin } = useActions();
+  const { signinError, autoSignin, storeRedirect } = useActions();
   const { username } = useSelector((state) => state.currentUser);
+
+  const onFailure = (failureCount, error) => {
+    if (error.response.status === 401) {
+      signinError('You must be logged in to view this page');
+      storeRedirect(window.location.pathname);
+      navigate('/signin');
+      return false;
+    }
+    return true;
+  };
 
   // try to sign in if no current user
   // cache time zero because we authenticate with jwt token and not from cache
@@ -17,14 +27,7 @@ const useLockedData = (cacheKey, fetcher) => {
     onSuccess: ({ data }) => {
       autoSignin(data.current_user);
     },
-    retry: (failureCount, error) => {
-      if (error.response.status === 401) {
-        signinError('You must be logged in to view this page');
-        navigate('/signin');
-        return false;
-      }
-      return true;
-    },
+    retry: onFailure,
   });
 
   // fetch data if current user
@@ -36,14 +39,7 @@ const useLockedData = (cacheKey, fetcher) => {
     isSuccess,
   } = useQuery([username, cacheKey], fetcher, {
     enabled: !!username,
-    retry: (failureCount, error) => {
-      if (error.response.status === 401) {
-        signinError('You must be logged in to view this page');
-        navigate('/signin');
-        return false;
-      }
-      return true;
-    },
+    retry: onFailure,
   });
 
   let notReadyContent;
