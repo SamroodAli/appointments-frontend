@@ -7,7 +7,7 @@ export default function Card({
   itemId,
   selected,
   onClick,
-  title,
+  name,
 }) {
   const visibility = React.useContext(VisibilityContext);
 
@@ -28,7 +28,7 @@ export default function Card({
       className="card"
     >
       <div>
-        <div>{title}</div>
+        <div>{name}</div>
         <div style={{ backgroundColor: visible ? 'transparent' : 'gray' }}>
           visible:
           {' '}
@@ -54,5 +54,5 @@ Card.propTypes = {
   itemId: PropTypes.number.isRequired,
   selected: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };

@@ -1,7 +1,6 @@
 import {
   useQuery,
 } from 'react-query';
-import { Link } from 'react-router-dom';
 import getTeachers from '../api/getTeachers';
 import HorizontalScroll from './horizontal-scroll';
 
@@ -24,13 +23,13 @@ const Teachers = () => {
   }
 
   const items = data.data.map((teacher) => ({
-    id: teacher.id,
+    id: String(teacher.id),
     name: teacher.name,
   }));
 
   return (
     <HorizontalScroll
-      items={items}
+      itemsProps={items}
     />
   );
 };

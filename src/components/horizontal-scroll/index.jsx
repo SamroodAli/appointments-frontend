@@ -1,25 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
+import PropTypes from 'prop-types';
 
 import { LeftArrow, RightArrow } from './arrow';
 import Card from './card';
 
 import useDrag from './useDrag';
 
-// NOTE: embrace power of CSS flexbox!
-// import "./arrowsOnBottomOrTop.css";
-// import "./hideScrollbar.css";
-// import "./firstItemMargin.css";
-
-const elemPrefix = 'test';
-const getId = (index) => `${elemPrefix}${index}`;
-
-const getItems = () => Array(20)
-  .fill(0)
-  .map((_, ind) => ({ id: getId(ind) }));
-
-function onWheel(apiObj, ev) {
+const onWheel = (apiObj, ev) => {
   const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
 
   if (isThouchpad) {
@@ -32,12 +20,10 @@ function onWheel(apiObj, ev) {
   } else if (ev.deltaY > 0) {
     apiObj.scrollPrev();
   }
-}
+};
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-function App() {
-  const [items] = React.useState(getItems);
+const HorizontalScroll = ({ itemsProps }) => {
+  const [items] = useState(itemsProps);
 
   const {
     dragStart, dragStop, dragMove, dragging,
@@ -48,7 +34,7 @@ function App() {
     }
   });
 
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = useState('');
   const handleItemClick = (itemId) => () => {
     if (dragging) {
       return false;
@@ -68,9 +54,9 @@ function App() {
             onMouseUp={() => dragStop}
             onMouseMove={handleDrag}
           >
-            {items.map(({ id }) => (
+            {items.map(({ id, name }) => (
               <Card
-                title={id}
+                name={name}
                 itemId={id} // NOTE: itemId is required for track items
                 key={id}
                 onClick={handleItemClick(id)}
@@ -82,5 +68,12 @@ function App() {
       </div>
     </>
   );
-}
-export default App;
+};
+
+HorizontalScroll.propTypes = {
+  itemsProps: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+  })).isRequired,
+};
+
+export default HorizontalScroll;
