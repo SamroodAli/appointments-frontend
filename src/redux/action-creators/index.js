@@ -13,11 +13,7 @@ export const signup = (
   passwordConfirmation,
   navigate,
 ) => async (dispatch, getState) => {
-  const { currentUser } = getState();
-
-  if (currentUser.username) {
-    return;
-  }
+  const { redirect } = getState();
 
   try {
     const { data } = await rails.post('/auth/signup', {
@@ -29,19 +25,14 @@ export const signup = (
       },
     });
     dispatch(onCurrentUser(data.username));
-    navigate('/');
+    navigate(redirect);
   } catch (err) {
-    console.dir(err.response);
     dispatch(onCurrentUserError(err.response.data));
   }
 };
 
 export const signin = (email, password, navigate) => async (dispatch, getState) => {
-  const { currentUser } = getState();
-
-  if (currentUser.username) {
-    return;
-  }
+  const { redirect } = getState();
 
   try {
     const { data } = await rails.post('/auth/signin', {
@@ -54,7 +45,7 @@ export const signin = (email, password, navigate) => async (dispatch, getState) 
       dispatch(onCurrentUser(data.username));
     }
     if (navigate) {
-      navigate('/');
+      navigate(redirect);
     }
   } catch (err) {
     dispatch(onCurrentUserError('Invalid credentials'));
