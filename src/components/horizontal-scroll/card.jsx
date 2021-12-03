@@ -51,7 +51,7 @@ export default function Card({
 }
 
 Card.propTypes = {
-  itemId: PropTypes.number.isRequired,
+  itemId: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,

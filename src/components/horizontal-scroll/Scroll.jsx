@@ -69,9 +69,7 @@ const Scroll = ({ items }) => {
 };
 
 Scroll.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-  })).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default Scroll;
