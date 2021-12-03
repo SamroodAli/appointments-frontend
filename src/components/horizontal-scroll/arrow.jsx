@@ -7,24 +7,19 @@ function Arrow({
   children,
   disabled,
   onClick,
+  className,
 }) {
   return (
-    <button
-      type="button"
-      disabled={disabled}
-      onClick={onClick}
-      style={{
-        cursor: 'pointer',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        right: '1%',
-        opacity: disabled ? '0' : '1',
-        userSelect: 'none',
-      }}
-    >
-      {children}
-    </button>
+    <div className={`${className}-container arrow-container`}>
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={onClick}
+        className={`arrow ${className}`}
+      >
+        {children}
+      </button>
+    </div>
   );
 }
 
@@ -47,8 +42,8 @@ export function LeftArrow() {
   }, [isFirstItemVisible, visibleItemsWithoutSeparators]);
 
   return (
-    <Arrow disabled={disabled} onClick={() => scrollPrev()}>
-      Left
+    <Arrow disabled={disabled} onClick={() => scrollPrev()} className="arrow-left">
+      ◁
     </Arrow>
   );
 }
@@ -70,8 +65,8 @@ export function RightArrow() {
   }, [isLastItemVisible, visibleItemsWithoutSeparators]);
 
   return (
-    <Arrow disabled={disabled} onClick={() => scrollNext()}>
-      Right
+    <Arrow disabled={disabled} onClick={() => scrollNext()} className="arrow-right">
+      ▷
     </Arrow>
   );
 }
@@ -85,4 +80,5 @@ Arrow.propTypes = {
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  className: PropTypes.string.isRequired,
 };

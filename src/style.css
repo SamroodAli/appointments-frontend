@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
+/* variables green */
+html {
+  --primary: #97BF10;
+  --secondary: #7C7C7C;
+  --ghost:#EFEFEF
+}
+
 * {
   list-style: none;
   text-decoration: none;
@@ -50,14 +57,14 @@ body {
 .wrapper .sidebar ul li a {
   display: block;
   padding: 13px 30px;
-  color: #7C7C7C;
+  color: var(--secondary);
   font-size: 16px;
   position: relative;
 }
 
 .wrapper .sidebar ul li a.active {
   color: #fff;
-  background: #97BF10;
+  background: var(--primary)
 }
 .wrapper .sidebar ul li a:hover{
     background: #96bf104a;
@@ -85,7 +92,7 @@ body {
 
 .wrapper .section .top_navbar .hamburger a {
   font-size: 28px;
-  color:#97BF10
+  color:var(--primary)
 }
 
 .wrapper .section .container {
@@ -102,4 +109,46 @@ body.active .wrapper .sidebar {
 body.active .wrapper .section {
   margin-left: 0;
   width: 100%;
+}
+
+.card {
+  height:200px;
+  width:200px;
+  margin:2rem;
+  border-radius:50%;
+  background-color: #fff;
+}
+
+
+.arrow {
+  width:4rem;
+  height:4rem
+}
+
+.arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  padding-left: 3rem;
+  padding-right:1rem;
+}
+
+.arrow:disabled {
+  visibility: hidden;
+}
+
+.arrow-left {
+  background-color: var(--ghost) ;
+}
+
+.arrow-right{
+  background-color: var(--primary);
+}
+
+.scroll-container {
+  /* removes the scrollbar for the horizontal scrollbar */
+  overflow-x: hidden; 
 }

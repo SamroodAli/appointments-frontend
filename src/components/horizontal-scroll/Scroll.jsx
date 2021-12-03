@@ -51,6 +51,7 @@ const Scroll = ({ items }) => {
             onMouseDown={() => dragStart}
             onMouseUp={() => dragStop}
             onMouseMove={handleDrag}
+            scrollContainerClassName="scroll-container"
           >
             {items.map(({ id, name }) => (
               <Card
