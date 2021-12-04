@@ -1,16 +1,13 @@
-import { useState } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import PropTypes from 'prop-types';
-
 import { LeftArrow, RightArrow } from './arrow';
 import Card from './card';
-
 import useDrag from './useDrag';
 
 const onWheel = (apiObj, ev) => {
-  const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+  const isTouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
 
-  if (isThouchpad) {
+  if (isTouchpad) {
     ev.stopPropagation();
     return;
   }
@@ -22,55 +19,54 @@ const onWheel = (apiObj, ev) => {
   }
 };
 
-const Scroll = ({ items }) => {
+const Scroll = ({ items, onItemClick }) => {
   const {
     dragStart, dragStop, dragMove, dragging,
   } = useDrag();
+
   const handleDrag = ({ scrollContainer }) => (ev) => dragMove(ev, (posDiff) => {
     if (scrollContainer.current) {
       scrollContainer.current.scrollLeft += posDiff; //eslint-disable-line
     }
   });
 
-  const [selected, setSelected] = useState('');
-  const handleItemClick = (itemId) => () => {
+  // const [selected, setSelected] = useState('');
+  const handleItemClick = (item) => () => {
     if (dragging) {
       return false;
     }
-    return setSelected(selected !== itemId ? itemId : '');
+    // return setSelected(selected !== itemId ? itemId : '');
+    return onItemClick(item);
   };
 
   return (
-    <>
-      <div className="example" style={{ paddingTop: '100px' }}>
-        <div onMouseLeave={dragStop}>
-          <ScrollMenu
-            LeftArrow={LeftArrow}
-            RightArrow={RightArrow}
-            onWheel={onWheel}
-            onMouseDown={() => dragStart}
-            onMouseUp={() => dragStop}
-            onMouseMove={handleDrag}
-            scrollContainerClassName="scroll-container"
-          >
-            {items.map(({ id, name }) => (
-              <Card
-                name={name}
-                itemId={id} // NOTE: itemId is required for track items
-                key={id}
-                onClick={handleItemClick(id)}
-                selected={id === selected}
-              />
-            ))}
-          </ScrollMenu>
-        </div>
-      </div>
-    </>
+    <div onMouseLeave={dragStop} className="horizontal-scroll-container">
+      <ScrollMenu
+        LeftArrow={LeftArrow}
+        RightArrow={RightArrow}
+        onWheel={onWheel}
+        onMouseDown={() => dragStart}
+        onMouseUp={() => dragStop}
+        onMouseMove={handleDrag}
+        scrollContainerClassName="scroll-container"
+      >
+        {items.map((item) => (
+          <Card
+            key={item.id}
+            item={item}
+            onClick={handleItemClick(item)}
+            itemId={item.id} // NOTE: itemId is required for track items
+          // selected={item.id === selected}
+          />
+        ))}
+      </ScrollMenu>
+    </div>
   );
 };
 
 Scroll.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  onItemClick: PropTypes.func.isRequired,
 };
 
 export default Scroll;

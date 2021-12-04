@@ -110,14 +110,6 @@ body.active .wrapper .section {
   width: 100%;
 }
 
-.card {
-  height:10rem;
-  width:10rem;
-  margin:3rem;
-  border-radius:50%;
-  background-color: #fff;
-}
-
 
 .arrow {
   width:4rem;
@@ -150,18 +142,73 @@ body.active .wrapper .section {
   color: #fff;
 }
 
-.scroll-container {
+/* .scroll-container { */
   /* removes the scrollbar for the horizontal scrollbar */
-  overflow-x: hidden; 
+  /* overflow-x: hidden;  */
+/* } */
+
+/* Scroll bar */
+/* width */
+
+.horizontal-scroll-container {
+  width: 100%;
+}
+
+
+::-webkit-scrollbar {
+  width: 100%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--ghost);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 4px solid var(--ghost);
+  max-width: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Teacher's page */
+
+.card {
+  background-color: #fff;
+  padding: 1rem;
+  border: 3px solid var(--ghost);
+  margin: 5rem 3rem;
 }
 
 .teachers-page {
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   justify-content: center;
 }
 
 .teachers-heading {
   text-align: center;
+  margin-bottom: 5rem;
+}
+
+.teacher-image {
+  border-radius: 50%;
+  height: 10rem;
+}
+
+.teacher-line {
+  width: 0%;
+  color: red;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
 }
