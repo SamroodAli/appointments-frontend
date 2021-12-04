@@ -9,6 +9,10 @@ html {
 
 }
 
+a {
+  text-decoration: none !important;
+}
+
 .non-draggable {
     user-drag: none;
     -webkit-user-drag: none;
@@ -106,7 +110,7 @@ body {
   color:var(--primary)
 }
 
-.wrapper .section .container {
+.wrapper .section .section-container {
   background: #fff;
   line-height: 28px;
   height: 90vh;
@@ -189,13 +193,16 @@ body.active .wrapper .section {
 
 /* Teacher's page */
 
-.card {
+.teacher-card {
   background-color: #fff;
   padding: 2rem;
   border: 3px solid var(--ghost);
   margin: 5rem 3rem;
   border-radius: 30%;
   background-color: #D2EBE8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .teachers-page {
@@ -206,16 +213,22 @@ body.active .wrapper .section {
 }
 
 .teachers-heading {
-  text-align: center;
+  text-align: center !important;
   margin-bottom: 3rem;
 }
 
 .teacher-image {
   border-radius: 40%;
-  height: 15rem;
-
-
+  height: 10rem;
 }
+
+/* media query for tablets and below */
+@media (min-width:1024px){
+  .teacher-image {
+    height: 15rem;
+  }
+}
+
 
 .teacher-line {
   width: 80%;

@@ -24,13 +24,13 @@ export default function Card({
     <button
       type="button"
       onClick={onClick}
-      className="card"
+      className="teacher-card"
       // shuffle background color
       style={{ backgroundColor: COLOR_ENUM[item.index % COLOR_ENUM.length] }}
       tabIndex={0}
     >
       <img className="teacher-image non-draggable" src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg" alt="profile_picture" />
-      <h3>{item.name}</h3>
+      <h5 className="text-center ">{item.name}</h5>
       <hr className="teacher-line" />
     </button>
   );

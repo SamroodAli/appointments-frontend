@@ -19,7 +19,7 @@ const Appointments = () => {
         Object.entries(data).map(([key, value]) => {
           if (!value.length) {
             return (
-              <h2>
+              <h2 key={key}>
                 {`No ${key === 'today' ? '' : key} appointments ${key !== 'today' ? '' : key}`}
               </h2>
             );
