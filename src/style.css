@@ -102,7 +102,7 @@ body {
 
 .wrapper .section .top_navbar {
   background: #ffffff;
-  height: 50px;
+  height: 5vh;
   display: flex;
   align-items: center;
   padding: 0 30px;
@@ -116,7 +116,8 @@ body {
 .wrapper .section .section-container {
   background: #fff;
   line-height: 28px;
-  height: 90vh;
+  position: relative;
+  height:95vh
 }
 
 body.active .wrapper .sidebar {

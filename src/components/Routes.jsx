@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home';
-import NavBar from './NavBar';
+import Sidebar from './Sidebar';
 import Signup from './Signup';
 import Signin from './Signin';
 import Teachers from './Teachers';
@@ -9,7 +9,7 @@ import Appointments from './Appointments';
 
 const AppRoutes = () => (
   <BrowserRouter>
-    <NavBar />
+    <Sidebar />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Signup />} />

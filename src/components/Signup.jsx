@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import useActions from '../hooks/useActions';
 
@@ -19,30 +19,44 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      {!!errorMessages.length && errorMessages.map((error) => <p key={error}>{error}</p>)}
-      <form onSubmit={onSubmit}>
-        <label htmlFor="username">
-          Enter Username
-          <input id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <label htmlFor="email">
-          Enter email
-          <input value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label htmlFor="password">
-          Enter password
-          <input value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <label htmlFor="username">
-          Confirm password
-          <input
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+
+    <div className="flex justify-center items-center h-full bg-secondary">
+      <div className="w-full max-w-xs ">
+        <form onSubmit={onSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+              Username
+              <input value={username} onChange={(e) => setUsername(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+            </label>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+              Email
+              <input value={email} onChange={(e) => setEmail(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+            </label>
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              Password
+              <input value={password} onChange={(e) => setPassword(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+            </label>
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              Confirm Password
+              <input value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
+            </label>
+            {!!errorMessages.length
+              && errorMessages.map((error) => <p key={error} className="text-red-500 text-xs italic">{error}</p>)}
+          </div>
+          <div className="flex items-center justify-around">
+            <input className="bg-green-300 hover:bg-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Sign up" />
+            <Link to="/signin" className="bg-blue-300 hover:bg-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="Sign in">
+              Sign in ?
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

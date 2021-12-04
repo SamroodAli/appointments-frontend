@@ -5,9 +5,9 @@ import { QueryCache, MutationCache } from 'react-query';
 import { useEffect } from 'react';
 import useActions from '../hooks/useActions';
 
-const navBarContainer = document.getElementById('navLinks');
+const sidebarContainer = document.getElementById('sidebar');
 
-const NavBar = () => {
+const Sidebar = () => {
   const { currentUser: { username } } = useSelector((state) => state);
   const { signout } = useActions();
   const navigate = useNavigate();
@@ -42,9 +42,18 @@ const NavBar = () => {
   ));
 
   return createPortal(
-    links,
-    navBarContainer,
+    <>
+      <div className="profile">
+        <h2>
+          <Link to="/">Appointy</Link>
+        </h2>
+      </div>
+      <ul id="navLinks">
+        {links}
+      </ul>
+    </>,
+    sidebarContainer,
   );
 };
 
-export default NavBar;
+export default Sidebar;
