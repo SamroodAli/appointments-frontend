@@ -3,7 +3,8 @@
 /* variables green */
 html {
   --primary: #97BF10;
-  --secondary: #7C7C7C;
+  --secondary: #FFCF00;
+  --grey: #7C7C7C;
   --ghost:#EFEFEF;
   scroll-behavior: smooth;
 
@@ -72,7 +73,7 @@ body {
 .wrapper .sidebar ul li a {
   display: block;
   padding: 13px 30px;
-  color: var(--secondary);
+  color: var(--grey);
   font-size: 16px;
   position: relative;
 }
@@ -186,7 +187,7 @@ body.active .wrapper .section {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #98BAE7;
+  background: var(--secondary);
 }
 
 /* Teacher's page */
@@ -227,11 +228,33 @@ body.active .wrapper .section {
   }
 }
 
-
 .teacher-line {
   width: 80%;
   margin: 0 auto;
   border: none;
   border-top: 5px dotted var(--ghost);
   margin-top: 0.75rem;
+}
+
+/* teacher page */
+.teacher-page {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* appointment page */
+/* .appointment-form-container { */ 
+/* } */
+form {
+  border: 1px solid var(--primary);
+  padding: 1rem;
+  width: fit-content;
+}
+
+.appointment-button {
+  width: 50%;
+  margin: 0 auto;
+  background-color: var(--primary);
+  width: 100%;
 }

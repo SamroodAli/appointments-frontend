@@ -38,30 +38,45 @@ const Form = ({ id, name }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label htmlFor="teacher">
-        Teacher
-        <input id="teacher" value={name} readOnly />
-      </label>
-      <label htmlFor="username">
-        Username
-        <input id="username" value={username} readOnly />
-      </label>
-      <DatePicker
-        id="date"
-        minDate={new Date()}
-        selected={date}
-        onChange={setDate}
-      />
-      <label htmlFor="time">
-        <select value={time} onChange={(e) => setTime(e.target.value)}>
-          {
-            TIMES.map((time) => <option key={time} value={time}>{time}</option>)
-          }
-        </select>
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+    <div className="appointment-form-container">
+      <form onSubmit={onSubmit} className="appointment-form">
+        <div className="input-group mb-3">
+          <label htmlFor="teacher" className="form-label">
+            Teacher
+            <input className="form-control-plaintext" id="teacher" value={name} readOnly />
+          </label>
+          <label htmlFor="username" className="form-label">
+            Student
+            <input className="form-control-plaintext" id="username" value={username} readOnly />
+          </label>
+        </div>
+        <div className="input-group mb-3">
+          <label htmlFor="date" className="form-label"> {/* eslint-disable-line */}
+            Choose Date
+            <DatePicker
+              id="date"
+              minDate={new Date()}
+              selected={date}
+              onChange={setDate}
+            />
+          </label>
+
+          <label htmlFor="time">
+            Choose Time
+            <select
+              className="form-select"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            >
+              {
+                TIMES.map((time) => <option key={time} value={time}>{time}</option>)
+              }
+            </select>
+          </label>
+        </div>
+        <input type="submit" className="btn appointment-button" value="Attend Course" />
+      </form>
+    </div>
   );
 };
 
