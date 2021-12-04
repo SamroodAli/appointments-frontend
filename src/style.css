@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* variables green */
 html {
@@ -15,7 +18,6 @@ a {
 }
 
 .non-draggable {
-    user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -188,73 +190,4 @@ body.active .wrapper .section {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
-}
-
-/* Teacher's page */
-
-.teacher-card {
-  background-color: #fff;
-  padding: 2rem;
-  border: 3px solid var(--ghost);
-  margin: 5rem 3rem;
-  border-radius: 30%;
-  background-color: #D2EBE8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.teachers-page {
-  height: 100%;
-  display: flex;
-  flex-direction:column;
-  justify-content: center;
-}
-
-.teachers-heading {
-  text-align: center !important;
-  margin-bottom: 3rem;
-}
-
-.teacher-image {
-  border-radius: 40%;
-  height: 10rem;
-}
-
-/* media query for tablets and below */
-@media (min-width:1024px){
-  .teacher-image {
-    height: 15rem;
-  }
-}
-
-.teacher-line {
-  width: 80%;
-  margin: 0 auto;
-  border: none;
-  border-top: 5px dotted var(--ghost);
-  margin-top: 0.75rem;
-}
-
-/* teacher page */
-.teacher-page {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-/* appointment page */
-/* .appointment-form-container { */ 
-/* } */
-form {
-  border: 1px solid var(--primary);
-  padding: 1rem;
-  width: fit-content;
-}
-
-.appointment-button {
-  width: 50%;
-  margin: 0 auto;
-  background-color: var(--primary);
-  width: 100%;
 }

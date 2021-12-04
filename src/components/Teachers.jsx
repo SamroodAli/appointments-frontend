@@ -39,8 +39,8 @@ const Teachers = () => {
   };
 
   return (
-    <div className="teachers-page">
-      <h1 className="teachers-heading">Best in class Teachers</h1>
+    <div className="text-center items-center flex flex-col justify-center h-full">
+      <h1 className="font-serif md:text-5xl lg:text-5xl mb-12">Best in class Teachers</h1>
       <HorizontalScroll items={items} onItemClick={onItemClick} />
     </div>
   );
