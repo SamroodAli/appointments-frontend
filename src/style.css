@@ -4,7 +4,18 @@
 html {
   --primary: #97BF10;
   --secondary: #7C7C7C;
-  --ghost:#EFEFEF
+  --ghost:#EFEFEF;
+  scroll-behavior: smooth;
+
+}
+
+.non-draggable {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none
 }
 
 * {
@@ -173,16 +184,18 @@ body.active .wrapper .section {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #98BAE7;
 }
 
 /* Teacher's page */
 
 .card {
   background-color: #fff;
-  padding: 1rem;
+  padding: 2rem;
   border: 3px solid var(--ghost);
   margin: 5rem 3rem;
+  border-radius: 30%;
+  background-color: #D2EBE8;
 }
 
 .teachers-page {
@@ -194,21 +207,20 @@ body.active .wrapper .section {
 
 .teachers-heading {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .teacher-image {
-  border-radius: 50%;
-  height: 10rem;
+  border-radius: 40%;
+  height: 15rem;
+
+
 }
 
 .teacher-line {
-  width: 0%;
-  color: red;
-}
-
-@media screen and (max-width: 768px) {
-  .card {
-    width: 100%;
-  }
+  width: 80%;
+  margin: 0 auto;
+  border: none;
+  border-top: 5px dotted var(--ghost);
+  margin-top: 0.75rem;
 }

@@ -25,10 +25,14 @@ const Teachers = () => {
   }
 
   // id has to be String for horizontal-scroll to work
-  const items = data.data.map((teacher) => ({
-    id: teacher.id,
-    name: teacher.name,
-  }));
+  // shuffle the array
+  const items = data.data
+    .sort(() => Math.random() - 0.5)
+    .map((teacher, idx) => ({
+      id: teacher.id,
+      name: teacher.name,
+      index: idx,
+    }));
 
   const onItemClick = (item) => {
     navigate(`/teachers/${item.id}`);
