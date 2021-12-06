@@ -35,7 +35,7 @@ const Teachers = () => {
     }));
 
   const onItemClick = (item) => {
-    navigate(`/teachers/${item.id}`);
+    navigate(`/teachers/${item.id}/${item.index}`);
   };
 
   return (

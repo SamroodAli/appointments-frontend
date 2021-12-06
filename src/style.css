@@ -192,3 +192,8 @@ body.active .wrapper .section {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
 }
+
+/* date picker */
+.react-datepicker__header {
+  background-color: white;
+}

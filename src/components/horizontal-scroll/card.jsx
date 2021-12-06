@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 // import { VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 const COLOR_ENUM = [
-  '#98BAE7',
-  '#D2EBE8',
-  '#FFE6BC',
-  '#BBBCBE',
-  '#FFAFAF',
-  '#F2DDC1',
+  'indigo',
+  'red',
+  'green',
+  'purple',
+  'pink',
+  'blue',
 ];
 
 export default function Card({
@@ -19,14 +19,14 @@ export default function Card({
 }) {
   // const visibility = React.useContext(VisibilityContext);
   // const visible = visibility.isItemVisible(itemId);
+  const color = COLOR_ENUM[item.index % COLOR_ENUM.length];
 
   return (
     <button
       type="button"
       onClick={onClick}
-      className="card rounded mb-16 lg:mx-12 h-44 lg:h-56 w-9/12 lg:w-8/12 rounded-3xl mt-20"
+      className={`mb-16 bg-${color}-300 lg:mx-12 h-44 lg:h-56 w-9/12 lg:w-8/12 rounded-3xl mt-20`}
       // shuffle background color
-      style={{ backgroundColor: COLOR_ENUM[item.index % COLOR_ENUM.length] }}
       tabIndex={0}
     >
       <div className=" w-36 lg:w-52 m-16 lg:m-10 bg-red-100 relative bottom-20 left-8 lg:left-20 rounded-full">

@@ -15,7 +15,7 @@ const TIMES = [
   'UTC +1 15:00',
 ];
 
-const Form = ({ id, name }) => {
+const Form = ({ id, name, color }) => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(TIMES[0]);
 
@@ -38,43 +38,48 @@ const Form = ({ id, name }) => {
   };
 
   return (
-    <div className="appointment-form-container">
-      <form onSubmit={onSubmit} className="appointment-form">
-        <div className="input-group mb-3">
-          <label htmlFor="teacher" className="form-label">
+    <div className={`flex justify-center items-center h-full bg-${color}-300 p-8 w-6/12 ring-2 ring-${color}-900`}>
+      <form onSubmit={onSubmit} className={`text-${color}-900`}>
+        <div className="my-2">
+          <label  htmlFor="teacher" >
             Teacher
-            <input className="form-control-plaintext" id="teacher" value={name} readOnly />
-          </label>
-          <label htmlFor="username" className="form-label">
-            Student
-            <input className="form-control-plaintext" id="username" value={username} readOnly />
+            <input className="px-2" id="teacher" value={name} readOnly />
           </label>
         </div>
-        <div className="input-group mb-3">
-          <label htmlFor="date" className="form-label"> {/* eslint-disable-line */}
+        <div className="my-2">
+          <label  htmlFor="username">
+            Student
+            <input className="px-2" id="username" value={username} readOnly />
+          </label>
+        </div>
+        <div className="my-2">
+          <label  htmlFor="date"> {/* eslint-disable-line */}
             Choose Date
             <DatePicker
+              calendarClassName={` ring-4 bg-${color}-200 ring-${color}-900`}
               id="date"
               minDate={new Date()}
               selected={date}
               onChange={setDate}
+              // closeCalendar
             />
           </label>
-
-          <label htmlFor="time">
+          <div className="my-2">
+          <label  htmlFor="time">
             Choose Time
             <select
-              className="form-select"
+              className="px-2"
               value={time}
               onChange={(e) => setTime(e.target.value)}
-            >
+              >
               {
                 TIMES.map((time) => <option key={time} value={time}>{time}</option>)
               }
             </select>
           </label>
         </div>
-        <input type="submit" className="btn appointment-button" value="Attend Course" />
+          <input type="submit" className={`bg-${color}-600 hover:bg-{color }-900 p-2 mt-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-${color}-600 focus:ring-opacity-50`} value="Book an appointment" />
+              </div>
       </form>
     </div>
   );
@@ -83,6 +88,7 @@ const Form = ({ id, name }) => {
 Form.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Form;
