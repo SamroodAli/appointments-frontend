@@ -38,22 +38,22 @@ const Form = ({ id, name, color }) => {
   };
 
   return (
-    <div className={`flex justify-center items-center h-full bg-${color}-300 p-8 w-6/12 ring-2 ring-${color}-900`}>
+    <div className={`flex my-12 justify-center lg:h-full items-center bg-${color}-300 mx-auto w-8/12 ring-2 ring-${color}-900`}>
       <form onSubmit={onSubmit} className={`text-${color}-900`}>
-        <div className="my-2">
-          <label  htmlFor="teacher" >
+        <div className="my-2 ">
+          <label htmlFor="teacher">
             Teacher
-            <input className="px-2" id="teacher" value={name} readOnly />
+            <input className="px-2 w-full" id="teacher" value={name} readOnly />
           </label>
         </div>
         <div className="my-2">
-          <label  htmlFor="username">
+          <label htmlFor="username">
             Student
-            <input className="px-2" id="username" value={username} readOnly />
+            <input className="px-2 w-full" id="username" value={username} readOnly />
           </label>
         </div>
         <div className="my-2">
-          <label  htmlFor="date"> {/* eslint-disable-line */}
+          <label htmlFor="date"> {/* eslint-disable-line */}
             Choose Date
             <DatePicker
               calendarClassName={` ring-4 bg-${color}-200 ring-${color}-900`}
@@ -61,25 +61,25 @@ const Form = ({ id, name, color }) => {
               minDate={new Date()}
               selected={date}
               onChange={setDate}
-              // closeCalendar
+              closeCalendar
             />
           </label>
           <div className="my-2">
-          <label  htmlFor="time">
-            Choose Time
-            <select
-              className="px-2"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
+            <label htmlFor="time">
+              Choose Time
+              <select
+                className="px-2 w-full"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
               >
-              {
-                TIMES.map((time) => <option key={time} value={time}>{time}</option>)
-              }
-            </select>
-          </label>
+                {
+                  TIMES.map((time) => <option key={time} value={time}>{time}</option>)
+                }
+              </select>
+            </label>
+          </div>
+          <input type="submit" className={`animate-pulse bg-${color}-600 hover:bg-{color }-900 p-2 mt-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-${color}-600 focus:ring-opacity-50`} value="Book an appointment" />
         </div>
-          <input type="submit" className={`bg-${color}-600 hover:bg-{color }-900 p-2 mt-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-${color}-600 focus:ring-opacity-50`} value="Book an appointment" />
-              </div>
       </form>
     </div>
   );
