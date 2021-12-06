@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { QueryCache, MutationCache } from 'react-query';
 import { useEffect } from 'react';
+import { NotificationContainer } from 'react-notifications';
 import useActions from '../hooks/useActions';
 
 const sidebarContainer = document.getElementById('sidebar');
@@ -43,6 +44,7 @@ const Sidebar = () => {
 
   return createPortal(
     <>
+      <NotificationContainer />
       <div className="profile">
         <h2>
           <Link to="/">Appointy</Link>

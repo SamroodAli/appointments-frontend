@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import postAppointments from '../api/postAppointments';
 import 'react-datepicker/dist/react-datepicker.css';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
 import { useNavigate } from 'react-router-dom';
+import postAppointments from '../api/postAppointments';
 
 const TIMES = [
   'UTC +1 9:00',
@@ -32,6 +32,9 @@ const Form = ({ id, name, color }) => {
         navigate('/appointments');
       });
     },
+    onError: (err) => {
+      NotificationManager.error(err.message, 'Error', 5000);
+    },
   });
 
   const onSubmit = (e) => {
@@ -45,7 +48,6 @@ const Form = ({ id, name, color }) => {
 
   return (
     <div className={`flex my-12 justify-center lg:h-full items-center bg-${color}-300 mx-auto w-8/12 ring-2 ring-${color}-900`}>
-      <NotificationContainer />
       <form onSubmit={onSubmit} className={`text-${color}-900`}>
         <div className="my-2 ">
           <label htmlFor="teacher">
