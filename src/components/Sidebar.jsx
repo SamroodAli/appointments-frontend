@@ -46,8 +46,8 @@ const Sidebar = () => {
     <>
       <NotificationContainer />
       <div className="profile">
-        <h2>
-          <Link to="/">Appointy</Link>
+        <h2 className="text-4xl font-mono bg-green-900 text-white p-5">
+          <Link to="/">Codezilla</Link>
         </h2>
       </div>
       <ul id="navLinks">
