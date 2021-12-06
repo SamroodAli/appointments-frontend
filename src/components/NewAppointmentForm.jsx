@@ -24,6 +24,7 @@ const Form = ({ id, name, color }) => {
   const { username } = useSelector((state) => state.currentUser);
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+
   const mutation = useMutation(postAppointments, {
     onSuccess: () => {
       // Invalidate and refetch
