@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "BUILD_PATH='../appointments-backend/public' craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
     "watch": "nodemon --watch ./src build.js ",

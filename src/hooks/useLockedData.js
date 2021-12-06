@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
+import { NotificationManager } from 'react-notifications';
 import useActions from './useActions';
 import getCurrentUser from '../api/getCurrentUser';
 
@@ -11,6 +12,7 @@ const useLockedData = (cacheKey, fetcher) => {
 
   const onFailure = (failureCount, error) => {
     if (error.response.status === 401) {
+      NotificationManager.warn('Please log in to view this page');
       signinError('You must be logged in to view this page');
       storeRedirect(window.location.pathname);
       navigate('/signin');
@@ -59,7 +61,6 @@ const useLockedData = (cacheKey, fetcher) => {
   }
 
   return {
-    // data.data because both react query and axios returns data in a property called data
     notReady, notReadyContent, data: data ? data.data : null,
   };
 };
