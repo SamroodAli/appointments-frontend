@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { QueryCache, MutationCache } from 'react-query';
 import { useEffect } from 'react';
@@ -12,6 +12,7 @@ const Sidebar = () => {
   const { currentUser: { username } } = useSelector((state) => state);
   const { signout } = useActions();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const hamburger = document.querySelector('.hamburger');
@@ -38,7 +39,7 @@ const Sidebar = () => {
 
   ].filter(({ locked }) => !locked).map((link) => (
     <li key={link.to}>
-      <Link to={link.to} className={window.location.pathname === link.to ? 'active' : ''} onClick={link.onClick}>{link.text}</Link>
+      <Link to={link.to} className={location.pathname === link.to ? 'active' : ''} onClick={link.onClick}>{link.text}</Link>
     </li>
   ));
 
