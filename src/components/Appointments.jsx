@@ -14,19 +14,19 @@ const Appointments = () => {
 
   return (
     <div>
-      <h1>Appointments</h1>
+      <h1 className="m-4 py-4 text-2xl">Your Appointments</h1>
       {
         Object.entries(data).map(([key, value]) => {
           if (!value.length) {
             return (
-              <h2 key={key}>
+              <h2 key={key} className="text-xl text-center">
                 {`No ${key === 'today' ? '' : key} appointments ${key !== 'today' ? '' : key}`}
               </h2>
             );
           }
           return (
             <React.Fragment key={key}>
-              <h2>
+              <h2 className="text-xl text-center">
                 {`${key}${key === 'today' ? "'s" : ''} appointments`}
               </h2>
               <AppointmentsList collection={value} />

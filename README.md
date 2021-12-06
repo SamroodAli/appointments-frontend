@@ -73,4 +73,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Thanks
-asmyshlyaev177/react-horizontal-scrolling-menu
+asmyshlyaev177/react-horizontal-scroll

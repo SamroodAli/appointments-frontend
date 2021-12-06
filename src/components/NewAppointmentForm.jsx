@@ -8,6 +8,8 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import postAppointments from '../api/postAppointments';
 import 'react-datepicker/dist/react-datepicker.css';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import { useNavigate } from 'react-router-dom';
 
 const TIMES = [
   'UTC +1 9:00',
@@ -21,10 +23,14 @@ const Form = ({ id, name, color }) => {
 
   const { username } = useSelector((state) => state.currentUser);
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const mutation = useMutation(postAppointments, {
     onSuccess: () => {
       // Invalidate and refetch
       queryClient.invalidateQueries('appointments');
+      NotificationManager.success('Click here to view your appointments', `Appointment with ${name} created successfully`, 5000, () => {
+        navigate('/appointments');
+      });
     },
   });
 
@@ -39,6 +45,7 @@ const Form = ({ id, name, color }) => {
 
   return (
     <div className={`flex my-12 justify-center lg:h-full items-center bg-${color}-300 mx-auto w-8/12 ring-2 ring-${color}-900`}>
+      <NotificationContainer />
       <form onSubmit={onSubmit} className={`text-${color}-900`}>
         <div className="my-2 ">
           <label htmlFor="teacher">
