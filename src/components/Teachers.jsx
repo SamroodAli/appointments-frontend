@@ -2,7 +2,6 @@ import {
   useQuery,
 } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import getTeachers from '../api/getTeachers';
 import HorizontalScroll from './horizontal-scroll';
 

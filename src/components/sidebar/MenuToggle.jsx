@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 const Path = (props) => (
   <motion.path
@@ -37,5 +38,9 @@ const MenuToggle = ({ toggle }) => (
     </svg>
   </button>
 );
+
+MenuToggle.propTypes = {
+  toggle: PropTypes.func.isRequired,
+};
 
 export default MenuToggle;

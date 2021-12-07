@@ -45,7 +45,7 @@ const MenuItem = ({ i, link, toggleOpen }) => {
           toggleOpen();
         }}
       >
-        <p className=" text-lg font-mono">
+        <p className=" text-lg font-mono text-white">
 
           {link.text}
         </p>
@@ -56,6 +56,12 @@ const MenuItem = ({ i, link, toggleOpen }) => {
 
 MenuItem.propTypes = {
   i: PropTypes.number.isRequired,
+  toggleOpen: PropTypes.func.isRequired,
+  link: PropTypes.shape({
+    to: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+  }).isRequired,
 };
 
 export default MenuItem;
