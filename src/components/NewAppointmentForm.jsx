@@ -47,7 +47,7 @@ const Form = ({ id, name, color }) => {
   };
 
   return (
-    <div className={`flex my-12 justify-center lg:h-full items-center bg-${color}-300 mx-auto w-8/12 ring-2 ring-${color}-900`}>
+    <div className={`flex my-12 justify-center xl:h-full items-center bg-${color}-300 mx-auto w-8/12 ring-2 ring-${color}-900`}>
       <form onSubmit={onSubmit} className={`text-${color}-900`}>
         <div className="my-2 ">
           <label htmlFor="teacher">

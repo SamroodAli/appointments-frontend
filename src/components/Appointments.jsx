@@ -20,14 +20,14 @@ const Appointments = () => {
           if (!value.length) {
             return (
               <h2 key={key} className="text-xl text-center">
-                {`No ${key === 'today' ? '' : key} appointments ${key !== 'today' ? '' : key}`}
+                {`No ${key === 'Today' ? '' : key} appointments ${key !== 'Today' ? '' : key}`}
               </h2>
             );
           }
           return (
             <React.Fragment key={key}>
               <h2 className="text-xl text-center">
-                {`${key}${key === 'today' ? "'s" : ''} appointments`}
+                {`${key}${key === 'Today' ? "'s" : ''} appointments`}
               </h2>
               <AppointmentsList collection={value} />
             </React.Fragment>
