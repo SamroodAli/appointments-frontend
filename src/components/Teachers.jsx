@@ -2,6 +2,7 @@ import {
   useQuery,
 } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import getTeachers from '../api/getTeachers';
 import HorizontalScroll from './horizontal-scroll';
 
@@ -39,7 +40,7 @@ const Teachers = () => {
   };
 
   return (
-    <div className="text-center items-center grid grid-cols-1 items-center h-full">
+    <div className="text-center grid grid-cols-1 items-center h-full">
       <h1 className="font-serif text-5xl lg:text-5xl mb-4">Best in class Teachers</h1>
       <HorizontalScroll items={items} onItemClick={onItemClick} />
     </div>

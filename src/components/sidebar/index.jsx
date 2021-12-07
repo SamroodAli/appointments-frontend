@@ -1,25 +1,18 @@
+import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { QueryCache, MutationCache } from 'react-query';
-import { useEffect } from 'react';
-import { NotificationContainer } from 'react-notifications';
-import useActions from '../hooks/useActions';
+import Sidebar from './sidebar';
+import useActions from '../../hooks/useActions';
 
 const sidebarContainer = document.getElementById('sidebar');
 
-const Sidebar = () => {
+const SidebarContainer = () => {
   const { currentUser: { username } } = useSelector((state) => state);
   const { signout } = useActions();
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const hamburger = document.querySelector('.hamburger');
-    hamburger.addEventListener('click', () => {
-      document.querySelector('body').classList.toggle('active');
-    });
-  }, []);
 
   const onSignOut = () => {
     signout();
@@ -38,25 +31,13 @@ const Sidebar = () => {
     },
 
   ].filter(({ locked }) => !locked).map((link) => (
-    <li key={link.to}>
-      <Link to={link.to} className={location.pathname === link.to ? 'active' : ''} onClick={link.onClick}>{link.text}</Link>
-    </li>
+    <Link key={link.to} to={link.to} className={location.pathname === link.to ? 'active' : ''} onClick={link.onClick}>{link.text}</Link>
   ));
 
   return createPortal(
-    <>
-      <NotificationContainer />
-      <div className="profile">
-        <h2 className="text-4xl font-mono bg-green-900 text-white p-5">
-          <Link to="/">Codezilla</Link>
-        </h2>
-      </div>
-      <ul id="navLinks">
-        {links}
-      </ul>
-    </>,
+    <Sidebar links={links} />,
     sidebarContainer,
   );
 };
 
-export default Sidebar;
+export default SidebarContainer;

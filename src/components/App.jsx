@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router } from 'react-router-dom';
 import redux from '../redux';
 import Routes from './Routes';
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 
 const App = () => {
   const queryClient = new QueryClient();

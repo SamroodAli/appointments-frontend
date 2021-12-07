@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { NotificationManager } from 'react-notifications';
 import { useNavigate } from 'react-router-dom';
 import postAppointments from '../api/postAppointments';
