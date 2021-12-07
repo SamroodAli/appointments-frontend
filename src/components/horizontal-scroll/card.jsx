@@ -25,7 +25,7 @@ export default function Card({
     <button
       type="button"
       onClick={onClick}
-      className={`mb-16 bg-${color}-300 lg:mx-12 h-44 lg:h-56 w-9/12 lg:w-8/12 rounded-3xl mt-20`}
+      className={`z-0 mb-16 bg-${color}-300 lg:mx-12 h-44 lg:h-56 w-9/12 lg:w-8/12 rounded-3xl mt-20`}
       // shuffle background color
       tabIndex={0}
     >

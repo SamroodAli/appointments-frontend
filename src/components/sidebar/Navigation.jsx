@@ -12,8 +12,8 @@ const variants = {
   },
 };
 
-const Navigation = ({ items }) => (
-  <motion.ul variants={variants}>
+const Navigation = ({ items, isOpen }) => (
+  <motion.ul variants={variants} className={isOpen ? '' : 'hidden'}>
     {items.map((link, i) => (
       <MenuItem i={i} key={link.to} link={link} />
     ))}

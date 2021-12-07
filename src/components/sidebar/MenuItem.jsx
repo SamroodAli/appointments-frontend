@@ -36,7 +36,7 @@ const MenuItem = ({ i, link }) => {
 
       <Link
         to={link.to}
-        className="text-placeholder flex justify-center items-center p-4 bg-green-100"
+        className=" flex justify-center items-center p-4 my-3 rounded-md w-10/12 h-4 flex-1"
         style={style}
         onClick={link.onClick}
       >

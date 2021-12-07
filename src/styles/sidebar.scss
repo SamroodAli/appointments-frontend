@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 #sidebar {
+  
+  .low-index {
+    z-index: -1000;
+  }
 
   nav {
   position: absolute;
@@ -11,15 +15,6 @@
   left: 0;
   bottom: 0;
   width: 300px;
-}
-
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 300px;
-  background: ghostwhite;
 }
 
 button {
