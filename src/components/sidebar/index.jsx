@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { QueryCache, MutationCache } from 'react-query';
 import Sidebar from './sidebar';
@@ -12,7 +12,6 @@ const SidebarContainer = () => {
   const { currentUser: { username } } = useSelector((state) => state);
   const { signout } = useActions();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const onSignOut = () => {
     signout();
@@ -30,9 +29,7 @@ const SidebarContainer = () => {
       to: '#', text: 'Sign Out', locked: !username, onClick: onSignOut,
     },
 
-  ].filter(({ locked }) => !locked).map((link) => (
-    <Link key={link.to} to={link.to} className={location.pathname === link.to ? 'active' : ''} onClick={link.onClick}>{link.text}</Link>
-  ));
+  ].filter(({ locked }) => !locked);
 
   return createPortal(
     <Sidebar links={links} />,

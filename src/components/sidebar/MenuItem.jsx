@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const variants = {
   open: {
@@ -29,9 +30,18 @@ const MenuItem = ({ i, link }) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="text-placeholder flex justify-center items-center p-4 bg-green-100" style={style}>
-        {link}
-      </div>
+      {/* <Link key={link.to} to={link.to}
+      className={location.pathname === link.to ? 'active' : ''}
+      onClick={link.onClick}>{link.text}</Link> */}
+
+      <Link
+        to={link.to}
+        className="text-placeholder flex justify-center items-center p-4 bg-green-100"
+        style={style}
+        onClick={link.onClick}
+      >
+        {link.text}
+      </Link>
     </motion.li>
   );
 };
