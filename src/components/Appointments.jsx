@@ -14,7 +14,7 @@ const Appointments = () => {
 
   return (
     <div className="container mx-auto">
-      <h1 className="m-4 py-4 text-2xl pl-12 mt-24">Your Appointments</h1>
+      <h1 className="m-4 py-4 text-2xl text-center lg:text-left lg:pl-4 mt-24">Your Appointments</h1>
       {
         Object.entries(data).map(([key, value]) => {
           if (!value.length) {
