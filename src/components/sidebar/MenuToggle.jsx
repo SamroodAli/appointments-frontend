@@ -12,7 +12,7 @@ const Path = (props) => (
 );
 
 const MenuToggle = ({ toggle }) => (
-  <button type="button" onClick={toggle}>
+  <button type="button" onClick={toggle} className="bg-white">
     <svg width="23" height="23" viewBox="0 0 23 23" className="mx-auto">
       <Path
         variants={{

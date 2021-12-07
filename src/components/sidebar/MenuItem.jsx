@@ -22,7 +22,7 @@ const variants = {
 
 const colors = ['#FF008C', '#D309E1', '#9C1AFF', '#7700FF', '#4400FF'];
 
-const MenuItem = ({ i, link }) => {
+const MenuItem = ({ i, link, toggleOpen }) => {
   const style = { border: `2px solid ${colors[i]}` };
   return (
     <motion.li
@@ -38,9 +38,17 @@ const MenuItem = ({ i, link }) => {
         to={link.to}
         className=" flex justify-center items-center p-4 my-3 rounded-md w-10/12 h-4 flex-1"
         style={style}
-        onClick={link.onClick}
+        onClick={() => {
+          if (link.onClick) {
+            link.onClick();
+          }
+          toggleOpen();
+        }}
       >
-        {link.text}
+        <p className=" text-lg font-mono">
+
+          {link.text}
+        </p>
       </Link>
     </motion.li>
   );

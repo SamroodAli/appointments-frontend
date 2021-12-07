@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { QueryCache, MutationCache } from 'react-query';
-import Sidebar from './sidebar';
+import Sidebar from './Sidebar';
 import useActions from '../../hooks/useActions';
 
 const sidebarContainer = document.getElementById('sidebar');
@@ -21,6 +21,7 @@ const SidebarContainer = () => {
   };
 
   const links = [
+    { to: '/', text: 'Home' },
     { to: '/teachers', text: 'Teachers', locked: false },
     { to: '/appointments', text: 'Appointments', locked: !username },
     { to: '/signin', text: 'Sign In', locked: !!username },

@@ -13,8 +13,8 @@ const Appointments = () => {
   }
 
   return (
-    <div>
-      <h1 className="m-4 py-4 text-2xl">Your Appointments</h1>
+    <div className="container mx-auto">
+      <h1 className="m-4 py-4 text-2xl pl-12 mt-24">Your Appointments</h1>
       {
         Object.entries(data).map(([key, value]) => {
           if (!value.length) {

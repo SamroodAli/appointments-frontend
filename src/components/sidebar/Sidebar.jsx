@@ -36,11 +36,12 @@ const Sidebar = ({ links }) => {
       animate={isOpen ? 'open' : 'closed'}
       custom={height}
       ref={containerRef}
-      className={isOpen ? undefined : 'low-index'}
+      className={isOpen ? 'absolute top-0 bottom-0 left-0 bg-gray-400 w-64 z-20' : undefined}
+
     >
-      <motion.div className="top-0 left-0 bottom-0 bg-green-500 w-10/12" variants={sidebar}>
-        <Navigation items={links} isOpen={isOpen} />
-        <MenuToggle toggle={() => toggleOpen()} />
+      <MenuToggle toggle={() => toggleOpen()} />
+      <motion.div className={isOpen ? 'background' : 'low-index background'} variants={sidebar}>
+        <Navigation items={links} isOpen={isOpen} toggleOpen={toggleOpen} />
       </motion.div>
     </motion.nav>
   );
