@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
 const Home = () => (
-  <div className="bg-secondary h-full grid grid-rows-2 justify-center items-center">
+  <div className="p-5 pt-24 sm:pt-0 bg-secondary h-full grid grid-rows-2 justify-center items-center">
     <div className="lg:2/6 xl:w-2/4 mt-20 lg:mt-40 lg:ml-16 text-left">
-      <h1 className="text-6xl lg:text-8xl font-semibold text-gray-900 leading-none">Codezilla appointments </h1>
+      <h1 className="text-4xl md:text-6xl lg:text-8xl font-semibold text-gray-900 leading-none">Codezilla appointments </h1>
       <div className="text-6xl text-gray-900 leading-none">Learn from the best</div>
       <div className="mt-6 text-xl font-light text-true-gray-500 antialiased">All from the comfort of your home.</div>
       <Link to="/teachers">
