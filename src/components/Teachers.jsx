@@ -1,32 +1,20 @@
-import {
-  useQuery,
-} from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import getTeachers from '../api/getTeachers';
 import HorizontalScroll from './horizontal-scroll';
+import useData from '../hooks/useData';
 
 const Teachers = () => {
   const navigate = useNavigate();
-  const {
-    isLoading, isError, data, error,
-  } = useQuery('teachers', getTeachers);
 
-  if (isLoading) {
-    return <span>Loading...</span>;
-  }
+  const { notReady, notReadyContent, data } = useData('teachers', getTeachers);
 
-  if (isError) {
-    return (
-      <span>
-        Error:
-        {error.message}
-      </span>
-    );
+  if (notReady) {
+    return notReadyContent;
   }
 
   // id has to be String for horizontal-scroll to work
   // shuffle the array
-  const items = data.data
+  const items = data
     .sort(() => Math.random() - 0.5)
     .map((teacher, idx) => ({
       id: teacher.id,

@@ -1,9 +1,9 @@
 import { useQuery } from 'react-query';
 
-const useLockedData = (cacheKey, fetcher) => {
+const useData = (cacheKey, fetcher) => {
   const {
     isLoading, isError, data, error, isSuccess,
-  } = useQuery('teachers', fetcher);
+  } = useQuery(cacheKey, fetcher);
 
   let notReadyContent;
   const notReady = !isSuccess;
@@ -27,4 +27,4 @@ const useLockedData = (cacheKey, fetcher) => {
   };
 };
 
-export default useLockedData;
+export default useData;
