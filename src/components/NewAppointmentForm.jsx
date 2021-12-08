@@ -33,7 +33,7 @@ const Form = ({ id, name, color }) => {
       });
     },
     onError: (err) => {
-      NotificationManager.error(err.message, 'Error', 5000);
+      NotificationManager.error(err.response.data.errors[0], 'Error', 5000);
     },
   });
 
