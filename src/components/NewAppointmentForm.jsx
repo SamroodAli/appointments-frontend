@@ -33,7 +33,9 @@ const Form = ({ id, name, color }) => {
       });
     },
     onError: (err) => {
-      NotificationManager.error(err.response.data.errors[0], 'Error', 5000);
+      NotificationManager.warning(`${err.response.data.errors[0]}\nClick here to view your appointments`, 'Error', 5000, () => {
+        navigate('/appointments');
+      });
     },
   });
 
