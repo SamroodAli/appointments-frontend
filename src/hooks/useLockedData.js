@@ -12,7 +12,7 @@ const useLockedData = (cacheKey, fetcher) => {
 
   const onFailure = (failureCount, error) => {
     if (error.response.status === 401) {
-      NotificationManager.warn('Please log in to view this page');
+      NotificationManager.warning('Please log in to view this page');
       signinError('You must be logged in to view this page');
       storeRedirect(window.location.pathname);
       navigate('/signin');
