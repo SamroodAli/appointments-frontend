@@ -14,10 +14,10 @@ const SidebarContainer = () => {
   const navigate = useNavigate();
 
   const onSignOut = () => {
+    navigate('/');
     signout();
     new QueryCache().clear();
     new MutationCache().clear();
-    navigate('/');
   };
 
   const links = [
