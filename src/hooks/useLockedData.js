@@ -48,15 +48,22 @@ const useLockedData = (cacheKey, fetcher) => {
   const notReady = !isSuccess;
 
   if (!username) {
-    notReadyContent = <div>Trying to sign you in</div>;
+    notReadyContent = (
+      <button type="button" className="bg-green-500 p-2  top-0 w-full" disabled>
+        <p className="font-mono animate-pulse">Trying to log you in</p>
+      </button>
+    );
   } else if (isLoading) {
-    notReadyContent = <span>Loading...</span>;
+    notReadyContent = (
+      <button type="button" className="bg-yellow-500 p-2  top-0 w-full" disabled>
+        <p className=" font-mono animate-pulse">Loading</p>
+      </button>
+    );
   } else if (isError) {
     notReadyContent = (
-      <span>
-        Error:asda
-        {error.message}
-      </span>
+      <button type="button" className="bg-red-500 p-2  top-0 w-full" disabled>
+        <p className="font-mono animate-pulse">{error.message}</p>
+      </button>
     );
   }
 
