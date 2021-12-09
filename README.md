@@ -2,12 +2,22 @@
 
 Codezilla is a course catalogue website which presents a list of coding courses. You can watch them as well. Skill up with these courses for free. This is the companion app which lets you book appointments with the teachers at Codezilla.
 
+# Codezilla
+
+This is the companion app for codezilla which can be found here
+* Repo [Codezilla](https://github.com/SamroodAli/codezilla)
+* Live on [heroku](https://samrood-codezilla.herokuapp.com/)
+
 ## Built With
 
 - React using create-react-app
 - Tailwind CSS
+- Framer motion
 - State management with the redux library
-- React Query for smart queries,mutations and caching
+- React Query for smart queries,mutations and cach
+
+# Ruby on Rails backend Codebase
+The Ruby on rails in this [repo](https://github.com/SamroodAli/appointments-frontend)
 
 The backend lives [here](https://github.com/SamroodAli/appointments-backend)
 
@@ -22,6 +32,7 @@ The backend lives [here](https://github.com/SamroodAli/appointments-backend)
 - Custom hooks for code reusability.
 - Notifications with react-notifications.
 - Loading and auto sign-in states.
+- Framer motion animations
 
 ## Live Demo
 
@@ -46,7 +57,7 @@ To get a local copy up and running follow these simple example steps.
 2. Change directory inside project
 
 ```sh
-cd codezilla
+cd codezilla-frontend
 ```
 
 3. In your terminal, run
