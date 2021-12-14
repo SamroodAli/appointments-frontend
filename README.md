@@ -2,11 +2,16 @@
 
 Codezilla is a course catalogue website which presents a list of coding courses. You can watch them as well. Skill up with these courses for free. This is the companion app which lets you book appointments with the teachers at Codezilla.
 
-# Codezilla
+## Live Demo
+
+[heroku link](https://codezilla-appointments.herokuapp.com/)
+
+# Codezilla Companion App
 
 This is the companion app for codezilla which can be found here
-* Repo [Codezilla](https://github.com/SamroodAli/codezilla)
-* Live on [heroku](https://samrood-codezilla.herokuapp.com/)
+
+- Repo [Codezilla](https://github.com/SamroodAli/codezilla)
+- Live on [heroku](https://samrood-codezilla.herokuapp.com/)
 
 ## Built With
 
@@ -17,11 +22,13 @@ This is the companion app for codezilla which can be found here
 - React Query for smart queries,mutations and cach
 
 # Ruby on Rails backend Codebase
+
 The Ruby on rails in this [repo](https://github.com/SamroodAli/appointments-frontend)
 
 The backend lives [here](https://github.com/SamroodAli/appointments-backend)
 
 # Features
+
 - Single page React App with rails backend.
 - Responsiveness across all screen sizes using Tailwind.
 - Redux for global state management.
@@ -33,10 +40,6 @@ The backend lives [here](https://github.com/SamroodAli/appointments-backend)
 - Notifications with react-notifications.
 - Loading and auto sign-in states.
 - Framer motion animations
-
-## Live Demo
-
-[heroku link](https://codezilla-appointments.herokuapp.com/)
 
 ## Getting Started
 
@@ -105,6 +108,7 @@ This command runs the linters for the project
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/samrood-ali/)
 
 # Attributions
+
 asmyshlyaev177/react-horizontal-scroll
 hero home section - Armando99Rdz - https://tailwindcomponents.com/u/armando99rdz
 
