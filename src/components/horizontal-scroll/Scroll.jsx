@@ -1,7 +1,8 @@
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import PropTypes from 'prop-types';
-import { LeftArrow, RightArrow } from './arrow';
-import Card from './card';
+import LeftArrow from './LeftArrow';
+import RightArrow from './RightArrow';
+import Card from './Card';
 import useDrag from './useDrag';
 
 const onWheel = (apiObj, ev) => {
