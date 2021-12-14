@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeftArrow snapshot testing 1`] = `
+<div
+  className="arrow-left-container arrow-container"
+>
+  <button
+    className="arrow arrow-left"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    ◁
+  </button>
+</div>
+`;

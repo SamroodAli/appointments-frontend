@@ -30,3 +30,5 @@ Arrow.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string.isRequired,
 };
+
+export default Arrow;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scroll snapshot testing 1`] = `
+<div
+  className="horizontal-scroll-container"
+  onMouseLeave={[Function]}
+>
+  <div
+    className="react-horizontal-scrolling-menu--wrapper "
+    onMouseDown={[Function]}
+    onMouseMove={[Function]}
+    onMouseUp={[Function]}
+    onWheel={[Function]}
+  >
+    <div
+      className="arrow-left-container arrow-container"
+    >
+      <button
+        className="arrow arrow-left"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        ◁
+      </button>
+    </div>
+    <div
+      className="react-horizontal-scrolling-menu--scroll-container scroll-container"
+      onScroll={[Function]}
+    />
+    <div
+      className="arrow-right-container arrow-container"
+    >
+      <button
+        className="arrow arrow-right"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        ▷
+      </button>
+    </div>
+  </div>
+</div>
+`;
