@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewAppointmentForm snapshot testing 1`] = `
+<div
+  className="flex my-12 justify-center xl:h-full items-center bg-indigo-300 mx-auto w-8/12 ring-2 ring-indigo-900"
+>
+  <form
+    className="text-indigo-900"
+    onSubmit={[Function]}
+  >
+    <div
+      className="my-2 "
+    >
+      <label
+        htmlFor="teacher"
+      >
+        Teacher
+        <input
+          className="px-2 w-full"
+          id="teacher"
+          readOnly={true}
+          value="Samrood"
+        />
+      </label>
+    </div>
+    <div
+      className="my-2"
+    >
+      <label
+        htmlFor="username"
+      >
+        Student
+        <input
+          className="px-2 w-full"
+          id="username"
+          readOnly={true}
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="my-2"
+    >
+      <label
+        htmlFor="date"
+      >
+         
+        Choose Date
+        <div
+          className="react-datepicker-wrapper"
+        >
+          <div
+            className="react-datepicker__input-container"
+          >
+            <input
+              className=""
+              disabled={false}
+              id="date"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              readOnly={false}
+              type="text"
+              value="12/14/2021"
+            />
+          </div>
+        </div>
+      </label>
+      <div
+        className="my-2"
+      >
+        <label
+          htmlFor="time"
+        >
+          Choose Time
+          <select
+            className="px-2 w-full"
+            onChange={[Function]}
+            value="UTC +1 9:00"
+          >
+            <option
+              value="UTC +1 9:00"
+            >
+              UTC +1 9:00
+            </option>
+            <option
+              value="UTC +1 12:00"
+            >
+              UTC +1 12:00
+            </option>
+            <option
+              value="UTC +1 15:00"
+            >
+              UTC +1 15:00
+            </option>
+          </select>
+        </label>
+      </div>
+      <input
+        className="animate-pulse bg-indigo-600 hover:bg-{color }-900 p-2 mt-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+        type="submit"
+        value="Book an appointment"
+      />
+    </div>
+  </form>
+</div>
+`;

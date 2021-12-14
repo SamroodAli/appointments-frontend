@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot testing 1`] = `
+<div
+  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+>
+  <div
+    className="bg-indigo-100 rounded-sm overflow-hidden shadow-lg m-8"
+  >
+    <div
+      className="h-32 bg-cover hover:bg-gray"
+      style={
+        Object {
+          "backgroundImage": "url('https://user-images.githubusercontent.com/5419306/64431443-71823880-d088-11e9-9bd7-1b314f94dc1f.png')",
+        }
+      }
+    />
+    <div
+      className="mx-6 my-4 border-b border-gray-light"
+    >
+      <p
+        className="font-normal text-gray-dark text-sm mb-2"
+      >
+        Teacher:
+         
+        teacher1
+      </p>
+      <p
+        className="font-normal text-gray-dark text-sm mb-4"
+      >
+        Time:
+         
+        time1
+      </p>
+    </div>
+  </div>
+  <div
+    className="bg-red-100 rounded-sm overflow-hidden shadow-lg m-8"
+  >
+    <div
+      className="h-32 bg-cover hover:bg-gray"
+      style={
+        Object {
+          "backgroundImage": "url('https://user-images.githubusercontent.com/5419306/64431443-71823880-d088-11e9-9bd7-1b314f94dc1f.png')",
+        }
+      }
+    />
+    <div
+      className="mx-6 my-4 border-b border-gray-light"
+    >
+      <p
+        className="font-normal text-gray-dark text-sm mb-2"
+      >
+        Teacher:
+         
+        teacher2
+      </p>
+      <p
+        className="font-normal text-gray-dark text-sm mb-4"
+      >
+        Time:
+         
+        time2
+      </p>
+    </div>
+  </div>
+</div>
+`;
