@@ -7,15 +7,12 @@ jest.mock('react', () => {
   const react = jest.requireActual('react');
   return {
     ...react,
-    useContext: jest.fn(() => {
-      throw new Error('Atleast I got called');
-      return (
-        {
-          isLastItemVisible: true,
-          scrollNext: jest.fn(),
-          visibleItemsWithoutSeparators: [],
-        });
-    }),
+    useContext: jest.fn(() => (
+      {
+        isLastItemVisible: true,
+        scrollNext: jest.fn(),
+        visibleItemsWithoutSeparators: [],
+      })),
   };
 });
 
