@@ -63,7 +63,7 @@ exports[`NewAppointmentForm snapshot testing 1`] = `
               onKeyDown={[Function]}
               readOnly={false}
               type="text"
-              value="12/14/2021"
+              value="12/16/2021"
             />
           </div>
         </div>

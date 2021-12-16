@@ -34,7 +34,7 @@ const SidebarContainer = () => {
 
   return createPortal(
     <Sidebar links={links} />,
-    sidebarContainer,
+    sidebarContainer || document.body,
   );
 };
 
