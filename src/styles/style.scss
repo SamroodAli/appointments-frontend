@@ -1,16 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* variables green */
 html {
-  --primary: #97BF10;
-  --secondary: #FFCF00;
-  --grey: #7C7C7C;
-  --ghost:#EFEFEF;
-  scroll-behavior: smooth;
+  --primary: #97bf10;
+  --secondary: #ffcf00;
+  --grey: #7c7c7c;
+  --ghost: #efefef;
 
+  scroll-behavior: smooth;
 }
 
 a {
@@ -18,11 +19,11 @@ a {
 }
 
 .non-draggable {
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 * {
@@ -39,7 +40,7 @@ body {
 }
 
 .wrapper .sidebar {
-  background: #ffffff;
+  background: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -63,7 +64,7 @@ body {
 }
 
 .wrapper .sidebar .profile h3 {
-  color: #ffffff;
+  color: #fff;
   margin: 10px 0 5px;
 }
 
@@ -82,15 +83,16 @@ body {
 
 .wrapper .sidebar ul li a.active {
   color: #fff;
-  background: var(--primary)
-}
-.wrapper .sidebar ul li a:hover{
-    background: #96bf104a;
-    color:#7c7c7c
+  background: var(--primary);
 }
 
-.wrapper .sidebar ul li a:hover:before,
-.wrapper .sidebar ul li a.active:before {
+.wrapper .sidebar ul li a:hover {
+  background: #96bf104a;
+  color: #7c7c7c;
+}
+
+.wrapper .sidebar ul li a:hover::before,
+.wrapper .sidebar ul li a.active::before {
   display: block;
 }
 
@@ -101,7 +103,7 @@ body {
 }
 
 .wrapper .section .top_navbar {
-  background: #ffffff;
+  background: #fff;
   height: 5vh;
   display: flex;
   align-items: center;
@@ -110,14 +112,14 @@ body {
 
 .wrapper .section .top_navbar .hamburger a {
   font-size: 28px;
-  color:var(--primary)
+  color: var(--primary);
 }
 
 .wrapper .section .section-container {
   background: #fff;
   line-height: 28px;
   position: relative;
-  height:95vh
+  height: 95vh;
 }
 
 body.active .wrapper .sidebar {
@@ -129,10 +131,9 @@ body.active .wrapper .section {
   width: 100%;
 }
 
-
 .arrow {
-  width:4rem;
-  height:4rem;
+  width: 4rem;
+  height: 4rem;
   display: grid;
   align-items: center;
   justify-items: center;
@@ -144,7 +145,6 @@ body.active .wrapper .section {
   align-items: center;
 }
 
-
 .arrow:disabled {
   visibility: hidden;
 }
@@ -154,23 +154,26 @@ body.active .wrapper .section {
   color: #fff;
 }
 
-.arrow-right{
+.arrow-right {
   background-color: var(--primary);
   color: #fff;
 }
 
 /* .scroll-container { */
-  /* removes the scrollbar for the horizontal scrollbar */
-  /* overflow-x: hidden;  */
+
+/* removes the scrollbar for the horizontal scrollbar */
+
+/* overflow-x: hidden;  */
+
 /* } */
 
 /* Scroll bar */
+
 /* width */
 
 .horizontal-scroll-container {
   width: 100%;
 }
-
 
 ::-webkit-scrollbar {
   width: 100%;
