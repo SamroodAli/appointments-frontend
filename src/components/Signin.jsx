@@ -34,8 +34,8 @@ const Signin = () => {
               && errorMessages.map((error) => <p key={error} className="text-red-500 text-xs italic">{error}</p>)}
           </div>
           <div className="flex items-center justify-around">
-            <input className="bg-green-300 hover:bg-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Sign in" />
-            <Link to="/signup" className="bg-blue-300 hover:bg-primary text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="Sign in">
+            <input className="bg-green-300 hover:bg-blue-500 hover:text-white text-gray-700 font-mono font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Sign in" />
+            <Link to="/signup" className="bg-blue-300 hover:bg-blue-500 hover:text-white text-gray-700 font-mono font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="Sign in">
               Sign up ?
             </Link>
           </div>
