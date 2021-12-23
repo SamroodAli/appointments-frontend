@@ -2,6 +2,7 @@ import {
   useMutation,
   useQueryClient,
 } from 'react-query';
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -15,6 +16,23 @@ const TIMES = [
   'UTC +1 12:00',
   'UTC +1 15:00',
 ];
+
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+};
 
 const Form = ({ id, name, color }) => {
   const [date, setDate] = useState(new Date());
@@ -89,7 +107,13 @@ const Form = ({ id, name, color }) => {
               </select>
             </label>
           </div>
-          <input type="submit" className={`animate-pulse bg-${color}-600 hover:bg-{color }-900 p-2 mt-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-${color}-600 focus:ring-opacity-50`} value="Book an appointment" />
+          <motion.div
+            variants={variants}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <input type="submit" className={`bg-${color}-600 hover:bg-{color }-900 p-2 mt-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-${color}-600 focus:ring-opacity-50`} value="Book an appointment" />
+          </motion.div>
         </div>
       </form>
     </div>
