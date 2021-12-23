@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import useActions from '../hooks/useActions';
 
 const Signup = () => {
-  const [username, setUsername] = useState('Samrood');
-  const [email, setEmail] = useState('samrood@gmailexample22.com');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('password');
   const [passwordConfirmation, setPasswordConfirmation] = useState('password');
   const { errorMessages } = useSelector((state) => state.currentUser);

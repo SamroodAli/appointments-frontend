@@ -4,8 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import useActions from '../hooks/useActions';
 
 const Signin = () => {
-  const [email, setEmail] = useState('samrood@gmailexample22.com');
-  const [password, setPassword] = useState('password');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { signin } = useActions();
   const { errorMessages } = useSelector((state) => state.currentUser);
   const navigate = useNavigate();
