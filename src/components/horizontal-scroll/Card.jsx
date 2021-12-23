@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 const COLOR_ENUM = [
   'indigo',
@@ -14,11 +13,7 @@ const COLOR_ENUM = [
 export default function Card({
   onClick,
   item,
-  // itemId,
-  // selected,
 }) {
-  // const visibility = React.useContext(VisibilityContext);
-  // const visible = visibility.isItemVisible(itemId);
   const color = COLOR_ENUM[item.index % COLOR_ENUM.length];
 
   return (
@@ -46,6 +41,4 @@ Card.propTypes = {
     name: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
   }).isRequired,
-  // itemId: PropTypes.string.isRequired,
-  // selected: PropTypes.bool.isRequired,
 };
