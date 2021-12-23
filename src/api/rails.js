@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 const rails = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: process.env.API_URL,
 });
 
 export default rails;
