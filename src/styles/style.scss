@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* variables green */
+html {
+  --primary: #97bf10;
+  --secondary: #ffcf00;
+  --grey: #7c7c7c;
+  --ghost: #efefef;
+
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.non-draggable {
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background: #f5f6fa;
+}
+
+.wrapper .sidebar {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 100%;
+  padding: 20px 0;
+  transition: all 0.5s ease;
+}
+
+.wrapper .sidebar .profile {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.wrapper .sidebar .profile img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.wrapper .sidebar .profile h3 {
+  color: #fff;
+  margin: 10px 0 5px;
+}
+
+.wrapper .sidebar .profile p {
+  color: rgb(206, 240, 253);
+  font-size: 14px;
+}
+
+.wrapper .sidebar ul li a {
+  display: block;
+  padding: 13px 30px;
+  color: var(--grey);
+  font-size: 16px;
+  position: relative;
+}
+
+.wrapper .sidebar ul li a.active {
+  color: #fff;
+  background: var(--primary);
+}
+
+.wrapper .sidebar ul li a:hover {
+  background: #96bf104a;
+  color: #7c7c7c;
+}
+
+.wrapper .sidebar ul li a:hover::before,
+.wrapper .sidebar ul li a.active::before {
+  display: block;
+}
+
+.wrapper .section {
+  width: calc(100% - 225px);
+  margin-left: 225px;
+  transition: all 0.5s ease;
+}
+
+.wrapper .section .top_navbar {
+  background: #fff;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.wrapper .section .top_navbar .hamburger a {
+  font-size: 28px;
+  color: var(--primary);
+}
+
+.wrapper .section .section-container {
+  background: #fff;
+  line-height: 28px;
+  position: relative;
+  height: 95vh;
+}
+
+body.active .wrapper .sidebar {
+  left: -225px;
+}
+
+body.active .wrapper .section {
+  margin-left: 0;
+  width: 100%;
+}
+
+.arrow {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border: 0;
+}
+
+.arrow-container {
+  display: flex;
+  align-items: center;
+}
+
+.arrow:disabled {
+  visibility: hidden;
+}
+
+.arrow-left {
+  background-color: var(--grey);
+  color: #fff;
+}
+
+.arrow-right {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* .scroll-container { */
+
+/* removes the scrollbar for the horizontal scrollbar */
+
+/* overflow-x: hidden;  */
+
+/* } */
+
+/* Scroll bar */
+
+/* width */
+
+.horizontal-scroll-container {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 100%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--ghost);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 4px solid var(--ghost);
+  max-width: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* date picker */
+.react-datepicker__header {
+  background-color: white;
+}

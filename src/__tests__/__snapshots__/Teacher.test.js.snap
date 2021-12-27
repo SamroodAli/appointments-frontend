@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teacher snapshot testing 1`] = `
+<button
+  className="bg-green-500 p-2  top-0 w-full"
+  disabled={true}
+  type="button"
+>
+  <p
+    className="font-mono animate-pulse"
+  >
+    Trying to log you in
+  </p>
+</button>
+`;
